@@ -1,3 +1,6 @@
+
+import ClassesGerais.carregaLookAndFell;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +17,8 @@ public class janelaPrincipal extends javax.swing.JFrame {
      * Creates new form janelaPrincipal
      */
     public janelaPrincipal() {
+        carregaLookAndFell lookFell = new carregaLookAndFell();
+        lookFell.carregaVisualSistema();
         initComponents();
     }
 
@@ -35,6 +40,8 @@ public class janelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jDesktopPane1.setBackground(new java.awt.Color(254, 254, 254));
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -58,7 +65,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPane1)
         );
 
-        jMenu1.setText("jMenu1");
+        jMenu1.setText("Arquivo");
 
         jMenuItem1.setText("jMenuItem1");
         jMenu1.add(jMenuItem1);
