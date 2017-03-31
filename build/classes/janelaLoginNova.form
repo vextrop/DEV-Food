@@ -133,7 +133,7 @@
             <Component class="javax.swing.JTextField" name="jTextField2">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
-                <Property name="text" type="java.lang.String" value="Passworde"/>
+                <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">

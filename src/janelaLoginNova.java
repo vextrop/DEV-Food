@@ -56,7 +56,7 @@ public class janelaLoginNova extends javax.swing.JDialog {
         jLabel2.setText("Senha");
 
         jTextField2.setEditable(false);
-        jTextField2.setText("Passworde");
+        jTextField2.setText("Password");
 
         jButton1.setText("Entrar");
 
