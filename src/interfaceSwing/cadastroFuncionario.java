@@ -1,5 +1,7 @@
 package interfaceSwing;
 
+import eventosBotoes.eventoCadastroFuncionarios;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,8 +17,13 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     /**
      * Creates new form cadastroFuncionario
      */
+    
+    private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
+    
     public cadastroFuncionario() {
         initComponents();
+        
+        
     }
 
     /**
@@ -63,8 +70,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         txtDataContratacao = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtDataEnceramento = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelaCadastro = new javax.swing.JButton();
+        btnFinalizaCadastro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -275,9 +282,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Cancelar");
+        btnCancelaCadastro.setText("Cancelar");
 
-        jButton2.setText("Finalizar");
+        btnFinalizaCadastro.setText("Finalizar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -288,9 +295,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnFinalizaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(btnCancelaCadastro))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -303,8 +310,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnFinalizaCadastro)
+                    .addComponent(btnCancelaCadastro))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -351,9 +358,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelaCadastro;
+    private javax.swing.JButton btnFinalizaCadastro;
     private javax.swing.JComboBox<String> comboSexo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
