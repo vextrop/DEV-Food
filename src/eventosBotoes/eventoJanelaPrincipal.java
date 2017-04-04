@@ -32,6 +32,9 @@ public class eventoJanelaPrincipal implements ActionListener{
         if("cadastroPedidos".equals(e.getActionCommand())){
             janelaprincipal.abreJanelaCadastroPedidos();
         }
+        if("sobre".equals(e.getActionCommand())){
+            janelaprincipal.abreJanelaSobre();
+        }
         
     }
     

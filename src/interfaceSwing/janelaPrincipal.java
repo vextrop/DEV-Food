@@ -29,6 +29,9 @@ public class janelaPrincipal extends javax.swing.JFrame {
         //instanciar evento dos botoes criados nesta tela
         btnCadastroFunc.addActionListener(principal);
         btnCadastroPedido.addActionListener(principal);
+        btnCadastroFuncionarios.addActionListener(principal);
+        btnAjuda.addActionListener(principal);
+        btnAjudaSobre.addActionListener(principal);
     }
 
     /**
@@ -50,18 +53,18 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JToolBar.Separator();
         btnCadastroPedido = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton6 = new javax.swing.JButton();
+        btnAjuda = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        btnCadastroFuncionarios = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        btnAjudaBar = new javax.swing.JMenu();
+        btnAjudaSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DEVfood");
@@ -108,11 +111,12 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(btnCadastroPedido);
         jToolBar1.add(jSeparator3);
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/health.png"))); // NOI18N
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton6);
+        btnAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/health.png"))); // NOI18N
+        btnAjuda.setFocusable(false);
+        btnAjuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAjuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAjuda.setActionCommand("sobre");
+        jToolBar1.add(btnAjuda);
 
         jMenu1.setText("Arquivo");
 
@@ -133,11 +137,12 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Cadastros");
 
-        jMenuItem3.setText("Funcionários");
-        jMenu3.add(jMenuItem3);
+        btnCadastroFuncionarios.setText("Funcionários");
+        btnCadastroFuncionarios.setActionCommand("cadastroFuncionarios");
+        jMenu3.add(btnCadastroFuncionarios);
 
-        jMenuItem5.setText("Estoque");
-        jMenu3.add(jMenuItem5);
+        jMenuItem3.setText("Estoque");
+        jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
 
@@ -148,12 +153,13 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("Ajuda");
+        btnAjudaBar.setText("Ajuda");
 
-        jMenuItem6.setText("Sobre");
-        jMenu4.add(jMenuItem6);
+        btnAjudaSobre.setText("Sobre");
+        btnAjudaSobre.setActionCommand("sobre");
+        btnAjudaBar.add(btnAjudaSobre);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(btnAjudaBar);
 
         setJMenuBar(jMenuBar1);
 
@@ -184,6 +190,11 @@ public class janelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
     
+    public void abreJanelaSobre(){
+        sobrePrograma janela = new sobrePrograma();
+        areaTrabalho.add(janela);
+        janela.setVisible(true);
+    }
     public void abreJanelaCadastroPedidos(){
         cadastroPedido janela = new cadastroPedido();
         areaTrabalho.add(janela);
@@ -232,23 +243,23 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane areaTrabalho;
+    private javax.swing.JButton btnAjuda;
+    private javax.swing.JMenu btnAjudaBar;
+    private javax.swing.JMenuItem btnAjudaSobre;
     private javax.swing.JButton btnCadastroFunc;
+    private javax.swing.JMenuItem btnCadastroFuncionarios;
     private javax.swing.JButton btnCadastroPedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
