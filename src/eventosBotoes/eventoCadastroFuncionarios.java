@@ -18,12 +18,18 @@ public class eventoCadastroFuncionarios implements ActionListener{
     cadastroFuncionario cadastrofuncionario;
 
     public eventoCadastroFuncionarios(cadastroFuncionario cadastroFunc) {
-        
+        this.cadastrofuncionario = cadastroFunc;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        if("finalizaCadastro".equals(e.getActionCommand())){
+            cadastrofuncionario.cadastraFuncionario();
+        }
+        if("cancelarCadastro".equals(e.getActionCommand())){
+            cadastrofuncionario.cancelaCadastro();
+        }
     }
     
 }

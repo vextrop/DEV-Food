@@ -1,6 +1,8 @@
 package interfaceSwing;
 
+import classesObjetos.clnCadastroFuncionarios;
 import eventosBotoes.eventoCadastroFuncionarios;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,13 +21,41 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
      */
     
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
+    public clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
     
     public cadastroFuncionario() {
         initComponents();
+        btnFinalizaCadastro.addActionListener(eventoFuncionarios);
+        btnCancelaCadastro.addActionListener(eventoFuncionarios);
+    }
+    
+    public void cadastraFuncionario(){
+        clnCadastro.setBairro(txtBairro.getText());
+        clnCadastro.setCargo(txtCargo.getText());
+        clnCadastro.setCidade(txtCidade.getText());
+        clnCadastro.setCodigo(Integer.parseInt(txtCodigo.getText()));
+        clnCadastro.setCpf(txtCpf.getText());
+        clnCadastro.setDataEnceramento(txtDataEnceramento.getText());
+        clnCadastro.setDataContratacao(txtDataContratacao.getText());
+        clnCadastro.setEndereco(txtEndereco.getText());
+        clnCadastro.setNomeCompleto(txtNome.getText());
+        clnCadastro.setRg(Integer.parseInt(txtRg.getText()));
+        clnCadastro.setSexo(comboSexo.getSelectedItem().toString());
+        clnCadastro.setUf(txtUf.getText());
+        clnCadastro.setValorComissao(Float.parseFloat(txtComissao.getText()));
+        clnCadastro.setValorSalario(Float.parseFloat(txtSalarioBase.getText()));
+        clnCadastro.setDataNascimento(txtDataNascimento.getText());
+        clnCadastro.setHorasSemanais(Integer.parseInt(txtHorasSemanais.getText()));
         
+        clnCadastro.imprimirCadastro();
+        JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
         
     }
-
+    
+    public void cancelaCadastro(){
+        cadastroFuncionario.this.dispose();
+        System.out.println("aui");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +69,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        txtCep = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtRg = new javax.swing.JTextField();
@@ -56,7 +86,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         txtCidade = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         comboSexo = new javax.swing.JComboBox<>();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtDataNascimento = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         txtCargo = new javax.swing.JTextField();
@@ -108,7 +138,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
 
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        txtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -124,7 +154,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -157,7 +187,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
                 .addGap(18, 18, 18))
         );
@@ -172,7 +202,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -187,7 +217,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel12)
@@ -283,8 +313,10 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         );
 
         btnCancelaCadastro.setText("Cancelar");
+        btnCancelaCadastro.setActionCommand("cancelarCadastro");
 
         btnFinalizaCadastro.setText("Finalizar");
+        btnFinalizaCadastro.setActionCommand("finalizaCadastro");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -293,7 +325,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 561, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnFinalizaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -361,7 +393,6 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelaCadastro;
     private javax.swing.JButton btnFinalizaCadastro;
     private javax.swing.JComboBox<String> comboSexo;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -385,12 +416,13 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCargo;
-    private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtComissao;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDataContratacao;
     private javax.swing.JTextField txtDataEnceramento;
+    private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtHorasSemanais;
     private javax.swing.JTextField txtNome;
