@@ -108,6 +108,11 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnCadastroPedido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCadastroPedido.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCadastroPedido.setActionCommand("cadastroPedidos");
+        btnCadastroPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroPedidoActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnCadastroPedido);
         jToolBar1.add(jSeparator3);
 
@@ -189,6 +194,10 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void btnCadastroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroPedidoActionPerformed
     
     public void abreJanelaSobre(){
         sobrePrograma janela = new sobrePrograma();
