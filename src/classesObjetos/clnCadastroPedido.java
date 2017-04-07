@@ -11,7 +11,7 @@ package classesObjetos;
  */
 public class clnCadastroPedido {
     
-    String Lanche;
+    String Lanche, Quant1, Bebida, Quant2, Mesa;
     
     
     
@@ -20,16 +20,59 @@ public class clnCadastroPedido {
         return this.Lanche;
     }
     
+    public String getQuant1(){
+        
+        return this.Quant1;
+    }
+    
+    public String getBebida(){
+        
+        return this.Bebida;
+    }
+    
+    public String getQuant2(){
+        
+        return this.Quant2;
+    }
+    
+    public String getMesa(){
+        
+        return this.Mesa;
+    }
     
     public void setLanche(String Lanche){
         
         this.Lanche = Lanche;
     }
     
+        public void setQuant1(String Quant1){
+        
+        this.Quant1 = Quant1;
+    }
+        
+        public void setBebida(String Bebida){
+        
+        this.Bebida = Bebida;
+    }    
+ 
+        
+        public void setQuant2(String Quant2){
+        
+        this.Quant2 = Quant2;
+    }
+        
+        public void setMesa(String Mesa){
+        
+        this.Mesa = Mesa;
+    }
     
     public void imprimirPedido(){
         
-        System.out.println("nLanche:" + getLanche());
+        System.out.println("Lanche:" + getLanche());
+        System.out.println("Quantidade:" + getQuant1());
+        System.out.println("Bebida:" + getBebida());
+        System.out.println("Quantidade:" + getQuant2());
+        System.out.println("Mesa:" + getMesa());
         
     }
     
