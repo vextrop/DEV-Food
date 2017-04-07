@@ -233,15 +233,16 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         clnPedido.setQuant2((String) jComboBox5.getSelectedItem());
         clnPedido.setMesa((String) jComboBox4.getSelectedItem());
         
-        DefaultListModel liss = new DefaultListModel();
         String l = jComboBox1.getSelectedItem().toString();
         String b = jComboBox3.getSelectedItem().toString();
         String m = jComboBox4.getSelectedItem().toString();
         
         String P = "Pedido: " + " Lanche: " + l +" , " +" Beida: " + b + " , " + " Mesa: " + m;
-        liss.addElement(P);
-        jList1.setModel(liss);   
        
+        DefaultListModel liss = new DefaultListModel();
+        liss.addElement(P);
+        jList1.setModel(liss);      
+
         clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
         }
