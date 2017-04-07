@@ -115,6 +115,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         btmRemoverPedido.setText("Remover");
 
         btmAdicionarPedido.setText("Adicionar");
+        btmAdicionarPedido.setActionCommand("adicionarPedido");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

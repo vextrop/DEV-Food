@@ -246,6 +246,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btmAdicionarPedido.setActionCommand(&quot;adicionarPedido&quot;);&#xa;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
