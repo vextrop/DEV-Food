@@ -51,6 +51,9 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         btmRemoverPedido = new javax.swing.JButton();
         btmAdicionarPedido = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jPanel4.setBackground(new java.awt.Color(220, 220, 220));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
@@ -63,12 +66,12 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(0, 758, Short.MAX_VALUE))
+                .addGap(0, 597, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -113,6 +116,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jList1);
 
         btmRemoverPedido.setText("Remover");
+        btmRemoverPedido.setActionCommand("removerPedido");
 
         btmAdicionarPedido.setText("Adicionar");
         btmAdicionarPedido.setActionCommand("adicionarPedido");
@@ -122,16 +126,16 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btmAdicionarPedido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btmRemoverPedido))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,12 +172,14 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
     public void addPedido(){
         
         clnPedido.setLanche((String) jComboBox1.getSelectedItem());
+        clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
 
     }
     
     public void removePedido(){
-       
+       cadastroPedido.this.dispose();
+       JOptionPane.showMessageDialog(null, "Pedido Cancelado!");
         
     }
     
