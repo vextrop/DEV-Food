@@ -30,25 +30,32 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     }
     
     public void cadastraFuncionario(){
-        clnCadastro.setBairro(txtBairro.getText());
-        clnCadastro.setCargo(txtCargo.getText());
-        clnCadastro.setCidade(txtCidade.getText());
-        clnCadastro.setCodigo(Integer.parseInt(txtCodigo.getText()));
-        clnCadastro.setCpf(txtCpf.getText());
-        clnCadastro.setDataEnceramento(txtDataEnceramento.getText());
-        clnCadastro.setDataContratacao(txtDataContratacao.getText());
-        clnCadastro.setEndereco(txtEndereco.getText());
-        clnCadastro.setNomeCompleto(txtNome.getText());
-        clnCadastro.setRg(Integer.parseInt(txtRg.getText()));
-        clnCadastro.setSexo(comboSexo.getSelectedItem().toString());
-        clnCadastro.setUf(txtUf.getText());
-        clnCadastro.setValorComissao(Float.parseFloat(txtComissao.getText()));
-        clnCadastro.setValorSalario(Float.parseFloat(txtSalarioBase.getText()));
-        clnCadastro.setDataNascimento(txtDataNascimento.getText());
-        clnCadastro.setHorasSemanais(Integer.parseInt(txtHorasSemanais.getText()));
         
-        clnCadastro.imprimirCadastro();
-        JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
+        if(txtBairro.getText().isEmpty()||txtCargo.getText().isEmpty()||txtCidade.getText().isEmpty()||txtCodigo.getText().isEmpty()||txtCpf.getText().isEmpty()||txtDataEnceramento.getText().isEmpty()||txtDataContratacao.getText().isEmpty()||txtEndereco.getText().isEmpty()||txtNome.getText().isEmpty()||txtRg.getText().isEmpty()||txtUf.getText().isEmpty()||txtComissao.getText().isEmpty()||txtSalarioBase.getText().isEmpty()||txtDataNascimento.getText().isEmpty()||txtHorasSemanais.getText().isEmpty()){
+          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informações!!");  
+        }
+        else{
+            clnCadastro.setBairro(txtBairro.getText());
+            clnCadastro.setCargo(txtCargo.getText());
+            clnCadastro.setCidade(txtCidade.getText());
+            clnCadastro.setCodigo(Integer.parseInt(txtCodigo.getText()));
+            clnCadastro.setCpf(txtCpf.getText());
+            clnCadastro.setDataEnceramento(txtDataEnceramento.getText());
+            clnCadastro.setDataContratacao(txtDataContratacao.getText());
+            clnCadastro.setEndereco(txtEndereco.getText());
+            clnCadastro.setNomeCompleto(txtNome.getText());
+            clnCadastro.setRg(Integer.parseInt(txtRg.getText()));
+            clnCadastro.setSexo(comboSexo.getSelectedItem().toString());
+            clnCadastro.setUf(txtUf.getText());
+            clnCadastro.setValorComissao(Float.parseFloat(txtComissao.getText()));
+            clnCadastro.setValorSalario(Float.parseFloat(txtSalarioBase.getText()));
+            clnCadastro.setDataNascimento(txtDataNascimento.getText());
+            clnCadastro.setHorasSemanais(Integer.parseInt(txtHorasSemanais.getText()));
+
+            clnCadastro.imprimirCadastro();
+            JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
+        }
+        
         
     }
     
