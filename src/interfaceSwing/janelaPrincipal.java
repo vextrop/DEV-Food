@@ -35,6 +35,8 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnAjuda.addActionListener(principal);
         btnAjudaSobre.addActionListener(principal);
         btnCadastroEstoque.addActionListener(principal);
+        btnCadastroEst.addActionListener(principal);
+        btnCadastroPed.addActionListener(principal);
     }
 
     /**
@@ -63,9 +65,9 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnCadastroFuncionarios = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        btnCadastroEst = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        btnCadastroPed = new javax.swing.JMenuItem();
         btnAjudaBar = new javax.swing.JMenu();
         btnAjudaSobre = new javax.swing.JMenuItem();
 
@@ -75,16 +77,18 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
         areaTrabalho.setBackground(new java.awt.Color(254, 254, 254));
 
-        jToolBar1.setBackground(new java.awt.Color(197, 197, 197));
+        jToolBar1.setBackground(new java.awt.Color(204, 204, 204));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/folder-open-information.png"))); // NOI18N
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/ico.save.32.png"))); // NOI18N
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -92,6 +96,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(jButton1);
         jToolBar1.add(jSeparator1);
 
+        btnCadastroFunc.setBackground(new java.awt.Color(204, 204, 204));
         btnCadastroFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/2375728.png"))); // NOI18N
         btnCadastroFunc.setFocusable(false);
         btnCadastroFunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -104,6 +109,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(btnCadastroFunc);
 
+        btnCadastroEstoque.setBackground(new java.awt.Color(204, 204, 204));
         btnCadastroEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/add-icone-4255-32.png"))); // NOI18N
         btnCadastroEstoque.setFocusable(false);
         btnCadastroEstoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -117,6 +123,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnCadastroEstoque.setActionCommand("cadastroEstoque");
         jToolBar1.add(jSeparator2);
 
+        btnCadastroPedido.setBackground(new java.awt.Color(204, 204, 204));
         btnCadastroPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/1426347119_shoppingcartdown.png"))); // NOI18N
         btnCadastroPedido.setFocusable(false);
         btnCadastroPedido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -130,6 +137,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(btnCadastroPedido);
         jToolBar1.add(jSeparator3);
 
+        btnAjuda.setBackground(new java.awt.Color(204, 204, 204));
         btnAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/health.png"))); // NOI18N
         btnAjuda.setFocusable(false);
         btnAjuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -158,17 +166,24 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
         btnCadastroFuncionarios.setText("Funcionários");
         btnCadastroFuncionarios.setActionCommand("cadastroFuncionarios");
+        btnCadastroFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroFuncionariosActionPerformed(evt);
+            }
+        });
         jMenu3.add(btnCadastroFuncionarios);
 
-        jMenuItem3.setText("Estoque");
-        jMenu3.add(jMenuItem3);
+        btnCadastroEst.setText("Estoque");
+        btnCadastroEst.setActionCommand("cadastroEstoque");
+        jMenu3.add(btnCadastroEst);
 
         jMenuBar1.add(jMenu3);
 
         jMenu2.setText("Pedidos");
 
-        jMenuItem4.setText("Realizar Pedido");
-        jMenu2.add(jMenuItem4);
+        btnCadastroPed.setText("Realizar Pedido");
+        btnCadastroPed.setActionCommand("cadastroPedidos");
+        jMenu2.add(btnCadastroPed);
 
         jMenuBar1.add(jMenu2);
 
@@ -220,6 +235,10 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private void btnCadastroEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroEstoqueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastroEstoqueActionPerformed
+
+    private void btnCadastroFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncionariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroFuncionariosActionPerformed
     
     //Função que centraliza internaljframe
      private void centralizaForm(JInternalFrame frame) {
@@ -295,9 +314,11 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAjuda;
     private javax.swing.JMenu btnAjudaBar;
     private javax.swing.JMenuItem btnAjudaSobre;
+    private javax.swing.JMenuItem btnCadastroEst;
     private javax.swing.JButton btnCadastroEstoque;
     private javax.swing.JButton btnCadastroFunc;
     private javax.swing.JMenuItem btnCadastroFuncionarios;
+    private javax.swing.JMenuItem btnCadastroPed;
     private javax.swing.JButton btnCadastroPedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -307,8 +328,6 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
