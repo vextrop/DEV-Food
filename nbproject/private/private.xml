@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/classesObjetos/clnCadastroFuncionarios.java</file>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/interfaceSwing/cadastroPedido.java</file>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/eventosBotoes/eventoCadastroFuncionarios.java</file>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/interfaceSwing/cadastroFuncionario.java</file>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/classesObjetos/clnCadastroPedido.java</file>
+            <file>file:/home/victor/NetBeansProjects/DEV-Food/src/eventosBotoes/eventoCadastroPedido.java</file>
+        </group>
     </open-files>
 </project-private>

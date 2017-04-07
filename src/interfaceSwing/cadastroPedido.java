@@ -3,6 +3,7 @@ package interfaceSwing;
 import eventosBotoes.eventoCadastroPedido;
 import classesObjetos.clnCadastroPedido;
 import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,6 +22,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
     
     private eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
     public clnCadastroPedido clnPedido = new clnCadastroPedido();
+    
             
             
     public cadastroPedido() {
@@ -89,15 +91,15 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerar Pedido"));
         jPanel3.setForeground(new java.awt.Color(1, 1, 1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hamburguer", "Batata Frita", "Hamburger e Batata Frita", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Hamburguer", "Batata Frita", "Hamburger e Batata Frita", " " }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agua", "Refrigerante", "Suco", "Combo Duplo", "Combo Triplo" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Agua", "Refrigerante", "Suco", "Combo Duplo", "Combo Triplo" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "Viagem" }));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         jLabel2.setText("Lanches:");
 
@@ -219,16 +221,33 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
 
     public void addPedido(){
         
+        String m2 = jComboBox4.getSelectedItem().toString();
+        
+        if(m2 == "--"){
+            JOptionPane.showMessageDialog(null, "Você precisa prencher o campo 'Mesa' para validar as informações!!");
+        }
+        else{
         clnPedido.setLanche((String) jComboBox1.getSelectedItem());
         clnPedido.setQuant1((String) jComboBox2.getSelectedItem());
         clnPedido.setBebida((String) jComboBox3.getSelectedItem());
         clnPedido.setQuant2((String) jComboBox5.getSelectedItem());
         clnPedido.setMesa((String) jComboBox4.getSelectedItem());
-     
+        
+        DefaultListModel liss = new DefaultListModel();
+        String l = jComboBox1.getSelectedItem().toString();
+        String b = jComboBox3.getSelectedItem().toString();
+        String m = jComboBox4.getSelectedItem().toString();
+        
+        String P = "Pedido: " + " Lanche: " + l +" , " +" Beida: " + b + " , " + " Mesa: " + m;
+        
+        liss.addElement(P);
+        jList1.setModel(liss);   
+        
+        
         clnPedido.imprimirPedido();
        
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
-
+        }
     }
     
     public void removePedido(){
