@@ -2,6 +2,7 @@ package interfaceSwing;
 
 import eventosBotoes.eventoCadastroPedido;
 import classesObjetos.clnCadastroPedido;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 /*
@@ -22,7 +23,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
      */
     private eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
     public clnCadastroPedido clnPedido = new clnCadastroPedido();
-    
+    private Vector ped = new Vector();
             
             
     public cadastroPedido() {
@@ -79,7 +80,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -162,7 +163,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jList1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pedidos Gerados"));
         jScrollPane1.setViewportView(jList1);
 
-        btmRemoverPedido.setText("Remover");
+        btmRemoverPedido.setText("Fechar");
         btmRemoverPedido.setActionCommand("removerPedido");
 
         btmAdicionarPedido.setText("Adicionar");
@@ -173,16 +174,16 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btmAdicionarPedido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(114, 114, 114)
                         .addComponent(btmRemoverPedido))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +203,8 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,10 +239,12 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         String m = jComboBox4.getSelectedItem().toString();
         
         String P = "Pedido: " + " Lanche: " + l +" , " +" Beida: " + b + " , " + " Mesa: " + m;
-       
-        DefaultListModel liss = new DefaultListModel();
-        liss.addElement(P);
-        jList1.setModel(liss);      
+        ped.add(P);
+        jList1.setListData(ped);    
+        jList1.removeAll();
+        
+        
+     
 
         clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
