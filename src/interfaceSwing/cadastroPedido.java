@@ -15,11 +15,11 @@ import javax.swing.DefaultListModel;
  * @author victor
  */
 public class cadastroPedido extends javax.swing.JInternalFrame {
-
+    
+    
     /**
      * Creates new form cadastroPedido
      */
-    
     private eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
     public clnCadastroPedido clnPedido = new clnCadastroPedido();
     
@@ -91,7 +91,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerar Pedido"));
         jPanel3.setForeground(new java.awt.Color(1, 1, 1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Hamburguer", "Batata Frita", "Hamburger e Batata Frita", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Hamburguer", "Batata Frita", "Hamburger e Batata Frita" }));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
@@ -188,13 +188,10 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(55, 55, 55))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btmAdicionarPedido)
                     .addComponent(btmRemoverPedido))
@@ -221,6 +218,9 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
 
     public void addPedido(){
         
+        
+        
+        
         String m2 = jComboBox4.getSelectedItem().toString();
         
         if(m2 == "--"){
@@ -239,13 +239,10 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         String m = jComboBox4.getSelectedItem().toString();
         
         String P = "Pedido: " + " Lanche: " + l +" , " +" Beida: " + b + " , " + " Mesa: " + m;
-        
         liss.addElement(P);
         jList1.setModel(liss);   
-        
-        
-        clnPedido.imprimirPedido();
        
+        clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
         }
     }
