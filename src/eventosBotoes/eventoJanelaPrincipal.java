@@ -6,10 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import interfaceSwing.janelaPrincipal;
 
-/**
- *
- * @author eduardo
- */
 public class eventoJanelaPrincipal implements ActionListener{
     
     //instancia da view para aceesar os metodos

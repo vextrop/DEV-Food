@@ -54,6 +54,8 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
         setTitle("Cadastro de Estoque");
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
@@ -157,6 +159,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         );
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setActionCommand("cadastrarestoque");
 
         btnCancelar.setText("Cancelar");
 
@@ -187,6 +190,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         );
 
         jPanel3.getAccessibleContext().setAccessibleName("Estoque");
+        btnCancelar.setActionCommand("cancelar");
 
         jPanel2.setBackground(new java.awt.Color(220, 220, 220));
 

@@ -22,10 +22,10 @@ public eventoCadastroEstoque (cadastroEstoque cadaEst) {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    if("adicionarPedido".equals(e.getActionCommand())){
+    if("cadastrarestoque".equals(e.getActionCommand())){
            cadastroEstoque.cadastrarEstoque();
         }
-    if("removerPedido".equals(e.getActionCommand())){
+    if("cancelar".equals(e.getActionCommand())){
           cadastroEstoque.cancelarCadastro();
         }
         

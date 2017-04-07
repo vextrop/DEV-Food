@@ -35,7 +35,7 @@ public class clnCadastroEstoque {
     public float getCusto(){
         return this.Custo;
     }  
-    public void setNomeP(String nomeP) {
+    public void setNomeP(String NomeP) {
         this.NomeP = NomeP;
     }
     public void setFornecedor(String Fornecedor) {
@@ -45,7 +45,7 @@ public class clnCadastroEstoque {
         this.Observacoes = Observacoes;
     }
     public void setCategoria(String Categoria) {
-        this.Observacoes = Observacoes;
+        this.Categoria = Categoria;
     }
     public void setCod(int Cod) {
         this.Cod = Cod;
