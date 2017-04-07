@@ -3,6 +3,8 @@ package interfaceSwing;
 
 import ClassesGerais.carregaLookAndFell;
 import eventosBotoes.eventoJanelaPrincipal;
+import java.awt.Dimension;
+import javax.swing.JInternalFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -219,24 +221,36 @@ public class janelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastroEstoqueActionPerformed
     
+    //Função que centraliza internaljframe
+     private void centralizaForm(JInternalFrame frame) {
+        Dimension desktopSize = areaTrabalho.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                (desktopSize.height - jInternalFrameSize.height) / 2);
+    }
+    
     public void abreJanelaSobre(){
         sobrePrograma janela = new sobrePrograma();
         areaTrabalho.add(janela);
+        centralizaForm(janela);
         janela.setVisible(true);
     }
     public void abreJanelaCadastroPedidos(){
         cadastroPedido janela = new cadastroPedido();
         areaTrabalho.add(janela);
+        centralizaForm(janela);
         janela.setVisible(true);
     }
     public void abreJanelaCadastroFuncionarios(){
         cadastroFuncionario janela = new cadastroFuncionario();
         areaTrabalho.add(janela);
+        centralizaForm(janela);
         janela.setVisible(true);
     }
     public void abreJanelaEstoque(){
         cadastroEstoque janela = new cadastroEstoque();
         areaTrabalho.add(janela);
+        centralizaForm(janela);
         janela.setVisible(true);
         
     }
