@@ -1,7 +1,8 @@
 package interfaceSwing;
 
 import eventosBotoes.eventoCadastroPedido;
-import eventosBotoes.eventoCadastroPedido;
+import classesObjetos.clnCadastroPedido;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,8 +19,8 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
      * Creates new form cadastroPedido
      */
     
-    private final eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
-    
+    private eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
+    public clnCadastroPedido clnPedido = new clnCadastroPedido();
             
             
     public cadastroPedido() {
@@ -79,6 +80,8 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerar Pedido"));
         jPanel3.setForeground(new java.awt.Color(1, 1, 1));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hambburger", "Batata Frita", "Hambburger e Batata Frita" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -112,11 +115,6 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         btmRemoverPedido.setText("Remover");
 
         btmAdicionarPedido.setText("Adicionar");
-        btmAdicionarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btmAdicionarPedidoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -130,7 +128,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btmRemoverPedido))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
@@ -168,20 +166,17 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
 
     public void addPedido(){
         
-        
+        clnPedido.setLanche((String) jComboBox1.getSelectedItem());
+        JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
+
     }
     
     public void removePedido(){
+       
         
     }
     
     
-    
-    private void btmAdicionarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmAdicionarPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btmAdicionarPedidoActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btmAdicionarPedido;
     private javax.swing.JButton btmRemoverPedido;
