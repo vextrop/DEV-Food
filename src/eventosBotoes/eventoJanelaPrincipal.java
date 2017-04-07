@@ -1,7 +1,4 @@
-/*
- * Autor: Eduardo Spillere Anzolin
- * IMPLEMENTA AÇÃO DOS BOTOES DA TELA PRINCIPAL   
- */
+
 package eventosBotoes;
 
 import interfaceSwing.janelaPrincipal;
@@ -35,6 +32,10 @@ public class eventoJanelaPrincipal implements ActionListener{
         if("sobre".equals(e.getActionCommand())){
             janelaprincipal.abreJanelaSobre();
         }
+        if("cadastroEstoque".equals(e.getActionCommand())){
+            janelaprincipal.abreJanelaEstoque();
+        }
+    
         
     }
     

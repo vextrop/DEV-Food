@@ -32,6 +32,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnCadastroFuncionarios.addActionListener(principal);
         btnAjuda.addActionListener(principal);
         btnAjudaSobre.addActionListener(principal);
+        btnCadastroEstoque.addActionListener(principal);
     }
 
     /**
@@ -49,7 +50,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         btnCadastroFunc = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnCadastroEstoque = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
         btnCadastroPedido = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
@@ -94,13 +95,24 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnCadastroFunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCadastroFunc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCadastroFunc.setActionCommand("cadastroFuncionarios");
+        btnCadastroFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroFuncActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnCadastroFunc);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/add-icone-4255-32.png"))); // NOI18N
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton5);
+        btnCadastroEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/add-icone-4255-32.png"))); // NOI18N
+        btnCadastroEstoque.setFocusable(false);
+        btnCadastroEstoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCadastroEstoque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCadastroEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroEstoqueActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnCadastroEstoque);
+        btnCadastroEstoque.setActionCommand("cadastroEstoque");
         jToolBar1.add(jSeparator2);
 
         btnCadastroPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/1426347119_shoppingcartdown.png"))); // NOI18N
@@ -198,6 +210,14 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private void btnCadastroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastroPedidoActionPerformed
+
+    private void btnCadastroFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroFuncActionPerformed
+
+    private void btnCadastroEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroEstoqueActionPerformed
     
     public void abreJanelaSobre(){
         sobrePrograma janela = new sobrePrograma();
@@ -213,6 +233,12 @@ public class janelaPrincipal extends javax.swing.JFrame {
         cadastroFuncionario janela = new cadastroFuncionario();
         areaTrabalho.add(janela);
         janela.setVisible(true);
+    }
+    public void abreJanelaEstoque(){
+        cadastroEstoque janela = new cadastroEstoque();
+        areaTrabalho.add(janela);
+        janela.setVisible(true);
+        
     }
     
     /**
@@ -255,12 +281,12 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAjuda;
     private javax.swing.JMenu btnAjudaBar;
     private javax.swing.JMenuItem btnAjudaSobre;
+    private javax.swing.JButton btnCadastroEstoque;
     private javax.swing.JButton btnCadastroFunc;
     private javax.swing.JMenuItem btnCadastroFuncionarios;
     private javax.swing.JButton btnCadastroPedido;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
