@@ -132,7 +132,8 @@ public class janelaLoginNova extends javax.swing.JDialog {
             this.dispose();
             janela.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Senha Incorreta!!");  
+            JOptionPane.showMessageDialog(null, "Senha Incorreta!! teste");  
+            
         }
         
         
