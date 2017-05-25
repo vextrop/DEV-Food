@@ -2,6 +2,10 @@ package interfaceSwing;
 
 
 import ClassesGerais.carregaLookAndFell;
+import classesObjetos.clnArquivos;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class janelaLoginNova extends javax.swing.JDialog {
@@ -14,6 +18,12 @@ public class janelaLoginNova extends javax.swing.JDialog {
         carregaLookAndFell lookFell = new carregaLookAndFell();
         lookFell.carregaVisualSistema();
         initComponents();
+        
+        try {
+            prencheUsuario();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Problema com a leitura do arquivo de configuração do usuario!!"); 
+        }
     }
 
     /**
@@ -42,6 +52,8 @@ public class janelaLoginNova extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Entre no sistema"));
 
         jLabel1.setText("Usuário");
+
+        txtUsuario.setEditable(false);
 
         jLabel2.setText("Senha");
 
@@ -116,7 +128,14 @@ public class janelaLoginNova extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    protected void prencheUsuario() throws IOException{
+        
+        clnArquivos arquivos = new clnArquivos();
+        //coloca usuario do txt no campo
+        txtUsuario.setText(arquivos.realizaLeituraUsuario());
+    }
+    
     protected boolean verificaSenha(){
         if(txtSenha.getText().equals("senha")){
             return true;
@@ -132,11 +151,9 @@ public class janelaLoginNova extends javax.swing.JDialog {
             this.dispose();
             janela.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Senha Incorreta!! teste");  
+            JOptionPane.showMessageDialog(null, "Senha Incorreta!!");  
             
         }
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
