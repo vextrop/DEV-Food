@@ -72,8 +72,5 @@ public class clnCadastroEstoque {
      System.out.println("Observações: " + getObservacoes());   
     }
     
-    
-    
-    
-    
+   
 }
