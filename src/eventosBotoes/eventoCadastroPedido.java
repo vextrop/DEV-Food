@@ -8,6 +8,9 @@ package eventosBotoes;
 import interfaceSwing.cadastroPedido;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -27,10 +30,18 @@ public class eventoCadastroPedido implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     if("adicionarPedido".equals(e.getActionCommand())){
+        try {
             cadastropedido.addPedido();
+        } catch (IOException ex) {
+            Logger.getLogger(eventoCadastroPedido.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     if("removerPedido".equals(e.getActionCommand())){
+        try {
             cadastropedido.removePedido();
+        } catch (IOException ex) {
+            Logger.getLogger(eventoCadastroPedido.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         
     

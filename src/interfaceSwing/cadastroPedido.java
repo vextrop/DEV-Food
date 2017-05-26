@@ -1,7 +1,9 @@
 package interfaceSwing;
 
+import classesObjetos.clnArquivos;
 import eventosBotoes.eventoCadastroPedido;
 import classesObjetos.clnCadastroPedido;
+import java.io.IOException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
@@ -17,7 +19,8 @@ import javax.swing.DefaultListModel;
  */
 public class cadastroPedido extends javax.swing.JInternalFrame {
     
-    
+    //Instancia classe de arquivos
+    clnArquivos arquivo = new clnArquivos();
     /**
      * Creates new form cadastroPedido
      */
@@ -217,7 +220,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void addPedido(){
+    public void addPedido() throws IOException{
         
         
         
@@ -226,6 +229,8 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         
         if(m2 == "--"){
             JOptionPane.showMessageDialog(null, "Você precisa prencher o campo 'Mesa' para validar as informações!!");
+            //log
+            arquivo.escreveLog("Tentativa falha de adicao de pedido campo mesa esta vazio");
         }
         else{
         clnPedido.setLanche((String) jComboBox1.getSelectedItem());
@@ -248,13 +253,16 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
 
         clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
+        //log
+        arquivo.escreveLog("Pedido Adicionado com sucesso");
         }
     }
     
-    public void removePedido(){
+    public void removePedido() throws IOException{
        cadastroPedido.this.dispose();
        JOptionPane.showMessageDialog(null, "Pedido Cancelado!");
-        
+       //log
+       arquivo.escreveLog("Janela de cadastro de pedidos esta fechada");
     }
     
     

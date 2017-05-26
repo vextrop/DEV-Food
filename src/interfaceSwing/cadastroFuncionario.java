@@ -39,7 +39,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
           JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informacoes!!");
           
           //escreve log
-          arquivos.escreveLog("Tentativa falha de cadastro de cliente Algum campo esta vazio");
+          arquivos.escreveLog("Tentativa falha de cadastro de funcionario Algum campo esta vazio");
         }
         else{
             clnCadastro.setBairro(txtBairro.getText());
@@ -63,7 +63,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
             
             //escreve no log
-            arquivos.escreveLog("Cliente Cadastrado com sucesso");
+            arquivos.escreveLog("Funcionario Cadastrado com sucesso");
         }
         
         
@@ -72,7 +72,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     public void cancelaCadastro() throws IOException{
         cadastroFuncionario.this.dispose();
         //escreve no log
-        arquivos.escreveLog("Cadastro de cliente Cancelado");
+        arquivos.escreveLog("Cadastro de funcionario Cancelado");
     }
     /**
      * This method is called from within the constructor to initialize the form.

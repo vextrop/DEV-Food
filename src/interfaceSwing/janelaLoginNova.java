@@ -9,11 +9,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class janelaLoginNova extends javax.swing.JDialog {
-
+    
+    clnArquivos arquivos = new clnArquivos();
+    
     /**
      * Creates new form janelaLoginNova
      */
-    public janelaLoginNova(java.awt.Frame parent, boolean modal) {
+    public janelaLoginNova(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         carregaLookAndFell lookFell = new carregaLookAndFell();
         lookFell.carregaVisualSistema();
@@ -22,7 +24,9 @@ public class janelaLoginNova extends javax.swing.JDialog {
         try {
             prencheUsuario();
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Problema com a leitura do arquivo de configuração do usuario!!"); 
+            JOptionPane.showMessageDialog(null, "Problema com a leitura do arquivo de configuração do usuario!!");
+            //log
+            arquivos.escreveLog("Erro com arquivo de usuario");
         }
     }
 
@@ -147,12 +151,26 @@ public class janelaLoginNova extends javax.swing.JDialog {
         // Abre tala principal
         
         if(verificaSenha() == true){
+            try {
+                //escreve log
+                arquivos.escreveLog("Login Bem Sucedido realizado");
+                arquivos.escreveLog("Janela Principal do sistema esta aberta");
+            } catch (IOException ex) {
+                Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
             janelaPrincipal janela = new janelaPrincipal();
             this.dispose();
             janela.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Senha Incorreta!!");  
-            
+            try {
+                //escreve log
+                arquivos.escreveLog("Login Falho Senha invalida");
+                arquivos.escreveLog("Janela Principal do sistema esta fechada");
+            } catch (IOException ex) {
+                Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -186,14 +204,18 @@ public class janelaLoginNova extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                janelaLoginNova dialog = new janelaLoginNova(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                try {
+                    janelaLoginNova dialog = new janelaLoginNova(new javax.swing.JFrame(), true);
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosing(java.awt.event.WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
+                    dialog.setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

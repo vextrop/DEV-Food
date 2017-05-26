@@ -2,6 +2,7 @@ package interfaceSwing;
 
 
 import ClassesGerais.carregaLookAndFell;
+import classesObjetos.clnArquivos;
 import eventosBotoes.eventoJanelaPrincipal;
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
@@ -23,6 +24,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
      */
     //envio do objeto this para classe que trata os eventos dos botoes
     private eventoJanelaPrincipal principal = new eventoJanelaPrincipal(this);
+    
     
     public janelaPrincipal() {
         carregaLookAndFell lookFell = new carregaLookAndFell();

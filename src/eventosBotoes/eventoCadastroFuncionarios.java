@@ -37,15 +37,16 @@ public class eventoCadastroFuncionarios implements ActionListener{
             } catch (IOException ex) {
                 Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                arquivo.escreveLog("Tentativa de cadastro de cliente lancada");
-            } catch (IOException ex) {
-                Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }
         if("cancelarCadastro".equals(e.getActionCommand())){
             try {
                 cadastrofuncionario.cancelaCadastro();
+            } catch (IOException ex) {
+                Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                arquivo.escreveLog("Janela de cadastro de Funcionario esta fechada");
             } catch (IOException ex) {
                 Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
             }
