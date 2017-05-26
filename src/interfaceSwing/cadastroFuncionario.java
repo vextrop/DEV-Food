@@ -1,7 +1,9 @@
 package interfaceSwing;
 
+import classesObjetos.clnArquivos;
 import classesObjetos.clnCadastroFuncionarios;
 import eventosBotoes.eventoCadastroFuncionarios;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /*
@@ -22,6 +24,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
     public clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
+    //Instancia de classe de cadastro de log
+    clnArquivos arquivos = new clnArquivos();
     
     public cadastroFuncionario() {
         initComponents();
@@ -29,10 +33,13 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         btnCancelaCadastro.addActionListener(eventoFuncionarios);
     }
     
-    public void cadastraFuncionario(){
+    public void cadastraFuncionario() throws IOException{
         
         if(txtBairro.getText().isEmpty()||txtCargo.getText().isEmpty()||txtCidade.getText().isEmpty()||txtCodigo.getText().isEmpty()||txtCpf.getText().isEmpty()||txtDataEnceramento.getText().isEmpty()||txtDataContratacao.getText().isEmpty()||txtEndereco.getText().isEmpty()||txtNome.getText().isEmpty()||txtRg.getText().isEmpty()||txtUf.getText().isEmpty()||txtComissao.getText().isEmpty()||txtSalarioBase.getText().isEmpty()||txtDataNascimento.getText().isEmpty()||txtHorasSemanais.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informações!!");  
+          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informacoes!!");
+          
+          //escreve log
+          arquivos.escreveLog("Tentativa falha de cadastro de cliente Algum campo esta vazio");
         }
         else{
             clnCadastro.setBairro(txtBairro.getText());
@@ -54,14 +61,18 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
 
             clnCadastro.imprimirCadastro();
             JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
+            
+            //escreve no log
+            arquivos.escreveLog("Cliente Cadastrado com sucesso");
         }
         
         
     }
     
-    public void cancelaCadastro(){
+    public void cancelaCadastro() throws IOException{
         cadastroFuncionario.this.dispose();
-        System.out.println("aui");
+        //escreve no log
+        arquivos.escreveLog("Cadastro de cliente Cancelado");
     }
     /**
      * This method is called from within the constructor to initialize the form.

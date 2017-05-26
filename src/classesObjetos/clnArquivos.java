@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,11 +29,30 @@ public class clnArquivos {
         /*/home/eduardo/Documentos/Programação/GitHub/DEV-Food/src/Arquivos/usuarios.txt*/
         //metodo auxiliar utilizado verificar depois a procedencia da 
         
-        InputStream is = new FileInputStream("/home/eduardo/Documentos/Programação/GitHub/DEV-Food/src/Arquivos/usuarios.txt");
+        InputStream is = new FileInputStream("src/Arquivos/usuarios.txt");
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String s = br.readLine();
         return s;
     }
     
+    public void escreveLog(String mensagem) throws IOException{
+        try{
+            FileOutputStream escreve = new FileOutputStream("src/Arquivos/logGeral.log", true); 
+            int tamanho = 0;
+            String data = (new java.util.Date()).toString();
+            String msg = data + " : " + mensagem + "\n";
+            while (tamanho < msg.length()) {
+                escreve.write((int)msg.charAt(tamanho++));
+            }
+            escreve.flush();
+            escreve.close();
+        }
+        catch (IOException ex){
+            
+        }
+        
+        
+        
+    }
 }
