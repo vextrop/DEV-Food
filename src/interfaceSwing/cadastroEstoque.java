@@ -1,8 +1,10 @@
 
 package interfaceSwing;
 
+import classesObjetos.clnArquivos;
 import eventosBotoes.eventoCadastroEstoque;
 import classesObjetos.clnCadastroEstoque;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
@@ -11,7 +13,10 @@ import javax.swing.JOptionPane;
  * @author dimitry
  */
 public class cadastroEstoque extends javax.swing.JInternalFrame {
-
+    
+    //instancia arquivo de log
+    clnArquivos arquivos = new clnArquivos();
+    
     private eventoCadastroEstoque eventoEstoque = new eventoCadastroEstoque(this);
     public clnCadastroEstoque clnEstoque = new clnCadastroEstoque();
     
@@ -230,10 +235,12 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public void cadastrarEstoque(){
+    public void cadastrarEstoque() throws IOException{
      String teste = jComboBox1.getSelectedItem().toString();   
      if(teste == "--"||txtCod.getText().isEmpty()|| txtQuantidade.getText().isEmpty()|| txtValidade.getText().isEmpty()|| txtCusto.getText().isEmpty()|| txtNome.getText().isEmpty()|| txtFornecedor.getText().isEmpty()|| txtobservacoes.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos");  
+          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos"); 
+          //log
+          arquivos.escreveLog("Tentativa falha de cadastro de estoque e preciso prencher todos os campos");
         }
         else{
         
@@ -250,12 +257,17 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         clnEstoque.imprimirEstoque();
         
         JOptionPane.showMessageDialog(null, "Produto" + txtNome.getText() + "Cadastrado com sucesso!");
+        //log
+        arquivos.escreveLog("Produto cadastrado com sucesso");
      }
         
     }
-     public void cancelarCadastro(){
+     public void cancelarCadastro() throws IOException{
         cadastroEstoque.this.dispose();
         System.out.println("cancelado");
+        
+        //log
+        arquivos.escreveLog("A janela de cadastro de produtos esta fechada");
     }
     
     
