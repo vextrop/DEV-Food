@@ -35,6 +35,27 @@ public class clnArquivos {
         String s = br.readLine();
         return s;
     }
+
+    public void gravarUsuario(String login) throws IOException{
+        try{
+            FileOutputStream escreve = new FileOutputStream("src/Arquivos/usuarios.txt", false); 
+            int tamanho = 0;
+            String msg = login;
+            while (tamanho < msg.length()) {
+                escreve.write((int)msg.charAt(tamanho++));
+            }
+            escreve.flush();
+            escreve.close();
+        }
+        catch (IOException ex){
+            
+        }
+        
+        
+        
+    }    
+    
+    
     
     public void escreveLog(String mensagem) throws IOException{
         try{

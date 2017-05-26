@@ -57,8 +57,6 @@ public class janelaLoginNova extends javax.swing.JDialog {
 
         jLabel1.setText("Usuário");
 
-        txtUsuario.setEditable(false);
-
         jLabel2.setText("Senha");
 
         jButton1.setText("Entrar");
@@ -138,39 +136,46 @@ public class janelaLoginNova extends javax.swing.JDialog {
         clnArquivos arquivos = new clnArquivos();
         //coloca usuario do txt no campo
         txtUsuario.setText(arquivos.realizaLeituraUsuario());
+        
+        
     }
     
-    protected boolean verificaSenha(){
+    protected boolean verificaSenha() throws IOException{
         if(txtSenha.getText().equals("senha")){
+             arquivos.gravarUsuario(txtUsuario.getText());
             return true;
         }
         return false;
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Abre tala principal
-        
-        if(verificaSenha() == true){
-            try {
-                //escreve log
-                arquivos.escreveLog("Login Bem Sucedido realizado");
-                arquivos.escreveLog("Janela Principal do sistema esta aberta");
-            } catch (IOException ex) {
-                Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        try {
+            // Abre tala principal
             
-            janelaPrincipal janela = new janelaPrincipal();
-            this.dispose();
-            janela.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Senha Incorreta!!");  
-            try {
-                //escreve log
-                arquivos.escreveLog("Login Falho Senha invalida");
-                arquivos.escreveLog("Janela Principal do sistema esta fechada");
-            } catch (IOException ex) {
-                Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+            if(verificaSenha() == true){
+                try {
+                    //escreve log
+                    arquivos.escreveLog("Login Bem Sucedido realizado");
+                    arquivos.escreveLog("Janela Principal do sistema esta aberta");
+                } catch (IOException ex) {
+                    Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                janelaPrincipal janela = new janelaPrincipal();
+                this.dispose();
+                janela.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha Incorreta!!");
+                try {
+                    //escreve log
+                    arquivos.escreveLog("Login Falho Senha invalida");
+                    arquivos.escreveLog("Janela Principal do sistema esta fechada");
+                } catch (IOException ex) {
+                    Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+        } catch (IOException ex) {
+            Logger.getLogger(janelaLoginNova.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
