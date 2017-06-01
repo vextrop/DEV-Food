@@ -1,10 +1,10 @@
-package interfaceSwing;
+package com.dev.devfoods.interfaceswing;
 
 
-import ClassesGerais.carregaLookAndFell;
-import ClassesGerais.gerenciadorJanelas;
-import classesObjetos.clnArquivos;
-import eventosBotoes.eventoJanelaPrincipal;
+import com.devs.devfood.classesgerais.carregaLookAndFell;
+import com.devs.devfood.classesgerais.gerenciadorJanelas;
+import com.devs.devfood.classesobjetos.clnArquivos;
+import com.devs.devfood.eventosbotoes.eventoJanelaPrincipal;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
@@ -94,14 +94,14 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/folder-open-information.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/folder-open-information.png"))); // NOI18N
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/ico.save.32.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/ico.save.32.png"))); // NOI18N
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -109,7 +109,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(jSeparator1);
 
         btnCadastroFunc.setBackground(new java.awt.Color(204, 204, 204));
-        btnCadastroFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/2375728.png"))); // NOI18N
+        btnCadastroFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/2375728.png"))); // NOI18N
         btnCadastroFunc.setFocusable(false);
         btnCadastroFunc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCadastroFunc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -122,7 +122,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(btnCadastroFunc);
 
         btnCadastroEstoque.setBackground(new java.awt.Color(204, 204, 204));
-        btnCadastroEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/add-icone-4255-32.png"))); // NOI18N
+        btnCadastroEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/add-icone-4255-32.png"))); // NOI18N
         btnCadastroEstoque.setFocusable(false);
         btnCadastroEstoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCadastroEstoque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -136,7 +136,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(jSeparator2);
 
         btnCadastroPedido.setBackground(new java.awt.Color(204, 204, 204));
-        btnCadastroPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/1426347119_shoppingcartdown.png"))); // NOI18N
+        btnCadastroPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/1426347119_shoppingcartdown.png"))); // NOI18N
         btnCadastroPedido.setFocusable(false);
         btnCadastroPedido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCadastroPedido.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -150,7 +150,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.add(jSeparator3);
 
         btnAjuda.setBackground(new java.awt.Color(204, 204, 204));
-        btnAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/health.png"))); // NOI18N
+        btnAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/health.png"))); // NOI18N
         btnAjuda.setFocusable(false);
         btnAjuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAjuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

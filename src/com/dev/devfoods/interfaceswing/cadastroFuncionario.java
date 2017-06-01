@@ -1,8 +1,8 @@
-package interfaceSwing;
+package com.dev.devfoods.interfaceswing;
 
-import classesObjetos.clnArquivos;
-import classesObjetos.clnCadastroFuncionarios;
-import eventosBotoes.eventoCadastroFuncionarios;
+import com.devs.devfood.classesobjetos.clnArquivos;
+import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
+import com.devs.devfood.eventosbotoes.eventoCadastroFuncionarios;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 

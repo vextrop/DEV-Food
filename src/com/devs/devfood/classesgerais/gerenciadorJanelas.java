@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ClassesGerais;
+package com.devs.devfood.classesgerais;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;

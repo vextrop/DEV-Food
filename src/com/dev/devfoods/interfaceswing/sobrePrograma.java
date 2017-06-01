@@ -1,4 +1,4 @@
-package interfaceSwing;
+package com.dev.devfoods.interfaceswing;
 
 
 public class sobrePrograma extends javax.swing.JInternalFrame {

@@ -1,8 +1,8 @@
-package interfaceSwing;
+package com.dev.devfoods.interfaceswing;
 
 
-import ClassesGerais.carregaLookAndFell;
-import classesObjetos.clnArquivos;
+import com.devs.devfood.classesgerais.carregaLookAndFell;
+import com.devs.devfood.classesobjetos.clnArquivos;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

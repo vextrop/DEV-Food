@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package eventosBotoes;
+package com.devs.devfood.eventosbotoes;
 
-import classesObjetos.clnArquivos;
-import interfaceSwing.cadastroFuncionario;
+import com.devs.devfood.classesobjetos.clnArquivos;
+import com.dev.devfoods.interfaceswing.cadastroFuncionario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;

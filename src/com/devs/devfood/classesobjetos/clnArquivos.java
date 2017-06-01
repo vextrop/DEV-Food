@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classesObjetos;
+package com.devs.devfood.classesobjetos;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,7 +29,7 @@ public class clnArquivos {
         /*/home/eduardo/Documentos/Programação/GitHub/DEV-Food/src/Arquivos/usuarios.txt*/
         //metodo auxiliar utilizado verificar depois a procedencia da 
         
-        InputStream is = new FileInputStream("src/Arquivos/usuarios.txt");
+        InputStream is = new FileInputStream("src/com/devs/devfood/arquivos/usuarios.txt");
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String s = br.readLine();
@@ -38,7 +38,7 @@ public class clnArquivos {
 
     public void gravarUsuario(String login) throws IOException{
         try{
-            FileOutputStream escreve = new FileOutputStream("src/Arquivos/usuarios.txt", false); 
+            FileOutputStream escreve = new FileOutputStream("src/com/devs/devfood/arquivos/usuarios.txt", false); 
             int tamanho = 0;
             String msg = login;
             while (tamanho < msg.length()) {
@@ -57,7 +57,7 @@ public class clnArquivos {
     
     public void escreveLog(String mensagem) throws IOException{
         try{
-            FileOutputStream escreve = new FileOutputStream("src/Arquivos/logGeral.log", true); 
+            FileOutputStream escreve = new FileOutputStream("src/com/devs/devfood/arquivos/logGeral.log", true); 
             int tamanho = 0;
             String data = (new java.util.Date()).toString();
             String msg = data + " : " + mensagem + "\n";

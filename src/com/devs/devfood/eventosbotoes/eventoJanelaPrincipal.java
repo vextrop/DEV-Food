@@ -1,11 +1,11 @@
 
-package eventosBotoes;
+package com.devs.devfood.eventosbotoes;
 
-import classesObjetos.clnArquivos;
-import interfaceSwing.janelaPrincipal;
+import com.devs.devfood.classesobjetos.clnArquivos;
+import com.dev.devfoods.interfaceswing.janelaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import interfaceSwing.janelaPrincipal;
+import com.dev.devfoods.interfaceswing.janelaPrincipal;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
