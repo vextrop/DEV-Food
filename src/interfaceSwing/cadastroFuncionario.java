@@ -32,7 +32,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     
     
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
-    public clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
+    private clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
     //Instancia de classe de cadastro de log
     clnArquivos arquivos = new clnArquivos();
     

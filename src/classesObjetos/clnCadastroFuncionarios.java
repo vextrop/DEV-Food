@@ -11,9 +11,9 @@ package classesObjetos;
  */
 public class clnCadastroFuncionarios {
 
-    int iCod, iRg, iHorasSemanais;
-    String strNOmeCOmpleto, strCpf, strData, strSexo, strEndereco, strUf, strBairro, strCidade, strCargo, strDataContratacao, strDataEnceramento, strDataNascimento;
-    float flValorComissao, flSalarioBase;
+    private int iCod, iRg, iHorasSemanais;
+    private String strNOmeCOmpleto, strCpf, strData, strSexo, strEndereco, strUf, strBairro, strCidade, strCargo, strDataContratacao, strDataEnceramento, strDataNascimento;
+    private float flValorComissao, flSalarioBase;
     
     
     //---geters---

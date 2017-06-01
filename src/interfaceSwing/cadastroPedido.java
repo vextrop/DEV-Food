@@ -35,7 +35,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
      * Creates new form cadastroPedido
      */
     private eventoCadastroPedido eventoPedido = new eventoCadastroPedido(this);
-    public clnCadastroPedido clnPedido = new clnCadastroPedido();
+    private clnCadastroPedido clnPedido = new clnCadastroPedido();
     private Vector ped = new Vector();
             
             

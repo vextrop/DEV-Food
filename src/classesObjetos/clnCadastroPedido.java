@@ -11,7 +11,7 @@ package classesObjetos;
  */
 public class clnCadastroPedido {
     
-    String Lanche, Quant1, Bebida, Quant2, Mesa;
+    private String Lanche, Quant1, Bebida, Quant2, Mesa;
     
     
     

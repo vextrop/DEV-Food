@@ -53,9 +53,7 @@ public class clnArquivos {
         
         
         
-    }    
-    
-    
+    }
     
     public void escreveLog(String mensagem) throws IOException{
         try{

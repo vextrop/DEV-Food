@@ -136,8 +136,6 @@ public class janelaLoginNova extends javax.swing.JDialog {
         clnArquivos arquivos = new clnArquivos();
         //coloca usuario do txt no campo
         txtUsuario.setText(arquivos.realizaLeituraUsuario());
-        
-        
     }
     
     protected boolean verificaSenha() throws IOException{

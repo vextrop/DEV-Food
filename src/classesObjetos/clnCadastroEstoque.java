@@ -6,9 +6,9 @@ package classesObjetos;
  */
 public class clnCadastroEstoque {
     
-    int Cod, Quantidade, Validade;
-    String NomeP, Fornecedor, Observacoes, Categoria;
-    float Custo;
+    private int Cod, Quantidade, Validade;
+    private String NomeP, Fornecedor, Observacoes, Categoria;
+    private float Custo;
     
     
     public String getnomeP(){
