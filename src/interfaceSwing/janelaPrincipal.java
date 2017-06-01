@@ -2,9 +2,11 @@ package interfaceSwing;
 
 
 import ClassesGerais.carregaLookAndFell;
+import ClassesGerais.gerenciadorJanelas;
 import classesObjetos.clnArquivos;
 import eventosBotoes.eventoJanelaPrincipal;
 import java.awt.Dimension;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
 /*
@@ -25,11 +27,19 @@ public class janelaPrincipal extends javax.swing.JFrame {
     //envio do objeto this para classe que trata os eventos dos botoes
     private eventoJanelaPrincipal principal = new eventoJanelaPrincipal(this);
     
+    gerenciadorJanelas gerenciador;
     
     public janelaPrincipal() {
+        
+        
         carregaLookAndFell lookFell = new carregaLookAndFell();
         lookFell.carregaVisualSistema();
         initComponents();
+        
+        //coloca o desktop pane na pagina controladora de janelas
+        //importante instancias o gerenciador depois de initComponents
+        this.gerenciador = new gerenciadorJanelas(areaTrabalho);
+        
         //instanciar evento dos botoes criados nesta tela
         btnCadastroFunc.addActionListener(principal);
         btnCadastroPedido.addActionListener(principal);
@@ -250,29 +260,26 @@ public class janelaPrincipal extends javax.swing.JFrame {
                 (desktopSize.height - jInternalFrameSize.height) / 2);
     }
     
+     
+     
     public void abreJanelaSobre(){
-        sobrePrograma janela = new sobrePrograma();
-        areaTrabalho.add(janela);
-        centralizaForm(janela);
-        janela.setVisible(true);
+
+        gerenciador.validaAbreJanelas(sobrePrograma.getInstancia());
+        
     }
     public void abreJanelaCadastroPedidos(){
-        cadastroPedido janela = new cadastroPedido();
-        areaTrabalho.add(janela);
-        centralizaForm(janela);
-        janela.setVisible(true);
+        
+        gerenciador.validaAbreJanelas(cadastroPedido.getInstancia());
+        
     }
     public void abreJanelaCadastroFuncionarios(){
-        cadastroFuncionario janela = new cadastroFuncionario();
-        areaTrabalho.add(janela);
-        centralizaForm(janela);
-        janela.setVisible(true);
+        
+        gerenciador.validaAbreJanelas(cadastroFuncionario.getInstancia());
+        
     }
     public void abreJanelaEstoque(){
-        cadastroEstoque janela = new cadastroEstoque();
-        areaTrabalho.add(janela);
-        centralizaForm(janela);
-        janela.setVisible(true);
+        
+        gerenciador.validaAbreJanelas(cadastroEstoque.getInstancia());
         
     }
     

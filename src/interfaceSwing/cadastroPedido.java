@@ -19,6 +19,16 @@ import javax.swing.DefaultListModel;
  */
 public class cadastroPedido extends javax.swing.JInternalFrame {
     
+    
+    private static cadastroPedido pedido;
+    
+    public static cadastroPedido getInstancia(){
+        if(pedido == null){
+            pedido = new cadastroPedido();
+        }
+        return pedido;
+    }
+    
     //Instancia classe de arquivos
     clnArquivos arquivo = new clnArquivos();
     /**

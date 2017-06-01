@@ -14,6 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class cadastroEstoque extends javax.swing.JInternalFrame {
     
+    private static cadastroEstoque estoque;
+    
+    public static cadastroEstoque getInstancia(){
+        if(estoque == null){
+            estoque = new cadastroEstoque();
+        }
+        return estoque;
+    }
+    
     //instancia arquivo de log
     clnArquivos arquivos = new clnArquivos();
     

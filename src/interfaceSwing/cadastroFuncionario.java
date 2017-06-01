@@ -21,6 +21,15 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     /**
      * Creates new form cadastroFuncionario
      */
+    private static cadastroFuncionario funcionarios;
+    
+    public static cadastroFuncionario getInstancia(){
+        if(funcionarios == null){
+            funcionarios = new cadastroFuncionario();
+        }
+        return funcionarios;
+    }
+    
     
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
     public clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();

@@ -6,6 +6,16 @@ public class sobrePrograma extends javax.swing.JInternalFrame {
     /**
      * Creates new form sobrePrograma
      */
+    
+    private static sobrePrograma sobre;
+    
+    public static sobrePrograma getInstancia(){
+        if(sobre == null){
+            sobre = new sobrePrograma();
+        }
+        return sobre;
+    }
+    
     public sobrePrograma() {
         initComponents();
     }
