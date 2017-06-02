@@ -6,7 +6,8 @@ import com.devs.devfood.eventosbotoes.eventoCadastroEstoque;
 import com.devs.devfood.classesobjetos.clnCadastroEstoque;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -243,33 +244,79 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void cadastrarEstoque() throws IOException{
-     String teste = jComboBox1.getSelectedItem().toString();   
-     if(teste == "--"||txtCod.getText().isEmpty()|| txtQuantidade.getText().isEmpty()|| txtValidade.getText().isEmpty()|| txtCusto.getText().isEmpty()|| txtNome.getText().isEmpty()|| txtFornecedor.getText().isEmpty()|| txtobservacoes.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos"); 
-          //log
-          arquivos.escreveLog("Tentativa falha de cadastro de estoque e preciso prencher todos os campos");
+    public void cadastrarEstoque() throws IOException {
+        String teste = jComboBox1.getSelectedItem().toString();
+        if (teste == "--" || txtCod.getText().isEmpty() || txtQuantidade.getText().isEmpty() || txtValidade.getText().isEmpty() || txtCusto.getText().isEmpty() || txtNome.getText().isEmpty() || txtFornecedor.getText().isEmpty() || txtobservacoes.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos");
+            //log
+            arquivos.escreveLog("Tentativa falha de cadastro de estoque e preciso prencher todos os campos");
+        } else {
+
+            try {
+                clnEstoque.setCod(Integer.parseInt(txtCod.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Codigo precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, codigo precisa ser um numero ");
+                return;
+            }
+
+            try {
+                clnEstoque.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Quantidade precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, quantidade precisa ser um numero ");
+                return;
+            }
+
+            try {
+                clnEstoque.setValidade(Integer.parseInt(txtValidade.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Validade precisa ser uma data");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, validade precisa ser uma data");
+                return;
+            }
+            try {
+                clnEstoque.setCusto(Float.parseFloat(txtCusto.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Custo precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, custo precisa ser um numero ");
+                return;
+            }
+            try {
+                clnEstoque.setNomeP((txtNome.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verique o nome");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, verificar nome");
+                return;
+            }
+            try {
+                clnEstoque.setFornecedor((txtFornecedor.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique fornecedor");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, verifique fornecedor");
+                return;
+            }
+            try {
+                clnEstoque.setObservacoes((txtobservacoes.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique observacoes");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, verifique observacoes ");
+                return;
+            }
+            try {
+                clnEstoque.setCategoria((String) jComboBox1.getSelectedItem());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique categoria");
+                arquivos.escreveLog("Tentativa falha de cadastro de estoque, erro na categoria ");
+                return;
+            }
+            clnEstoque.imprimirEstoque();
+
+            JOptionPane.showMessageDialog(null, "Produto " + txtNome.getText() + " Cadastrado com sucesso!");
+            //log
+            arquivos.escreveLog("Produto cadastrado com sucesso");
         }
-        else{
-        
-        
-        clnEstoque.setCod(Integer.parseInt(txtCod.getText()));
-        clnEstoque.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-        clnEstoque.setValidade(Integer.parseInt(txtValidade.getText()));
-        clnEstoque.setCusto(Float.parseFloat(txtCusto.getText()));
-        clnEstoque.setNomeP((txtNome.getText()));
-        clnEstoque.setFornecedor((txtFornecedor.getText()));
-        clnEstoque.setObservacoes((txtobservacoes.getText()));
-        clnEstoque.setCategoria((String) jComboBox1.getSelectedItem());
-        
-        clnEstoque.imprimirEstoque();
-        
-        JOptionPane.showMessageDialog(null, "Produto" + txtNome.getText() + "Cadastrado com sucesso!");
-        //log
-        arquivos.escreveLog("Produto cadastrado com sucesso");
-     }
-        
+
     }
      public void cancelarCadastro() throws IOException{
         cadastroEstoque.this.dispose();

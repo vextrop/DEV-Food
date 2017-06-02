@@ -41,40 +41,134 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         btnFinalizaCadastro.addActionListener(eventoFuncionarios);
         btnCancelaCadastro.addActionListener(eventoFuncionarios);
     }
-    
-    public void cadastraFuncionario() throws IOException{
-        
-        if(txtBairro.getText().isEmpty()||txtCargo.getText().isEmpty()||txtCidade.getText().isEmpty()||txtCodigo.getText().isEmpty()||txtCpf.getText().isEmpty()||txtDataEnceramento.getText().isEmpty()||txtDataContratacao.getText().isEmpty()||txtEndereco.getText().isEmpty()||txtNome.getText().isEmpty()||txtRg.getText().isEmpty()||txtUf.getText().isEmpty()||txtComissao.getText().isEmpty()||txtSalarioBase.getText().isEmpty()||txtDataNascimento.getText().isEmpty()||txtHorasSemanais.getText().isEmpty()){
-          JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informacoes!!");
-          
-          //escreve log
-          arquivos.escreveLog("Tentativa falha de cadastro de funcionario Algum campo esta vazio");
-        }
-        else{
-            clnCadastro.setBairro(txtBairro.getText());
-            clnCadastro.setCargo(txtCargo.getText());
-            clnCadastro.setCidade(txtCidade.getText());
-            clnCadastro.setCodigo(Integer.parseInt(txtCodigo.getText()));
-            clnCadastro.setCpf(txtCpf.getText());
-            clnCadastro.setDataEnceramento(txtDataEnceramento.getText());
-            clnCadastro.setDataContratacao(txtDataContratacao.getText());
-            clnCadastro.setEndereco(txtEndereco.getText());
-            clnCadastro.setNomeCompleto(txtNome.getText());
-            clnCadastro.setRg(Integer.parseInt(txtRg.getText()));
-            clnCadastro.setSexo(comboSexo.getSelectedItem().toString());
-            clnCadastro.setUf(txtUf.getText());
-            clnCadastro.setValorComissao(Float.parseFloat(txtComissao.getText()));
-            clnCadastro.setValorSalario(Float.parseFloat(txtSalarioBase.getText()));
-            clnCadastro.setDataNascimento(txtDataNascimento.getText());
-            clnCadastro.setHorasSemanais(Integer.parseInt(txtHorasSemanais.getText()));
+ 
+    public void cadastraFuncionario() throws IOException {
 
+        if (txtBairro.getText().isEmpty() || txtCargo.getText().isEmpty() || txtCidade.getText().isEmpty() || txtCodigo.getText().isEmpty() || txtCpf.getText().isEmpty() || txtDataEnceramento.getText().isEmpty() || txtDataContratacao.getText().isEmpty() || txtEndereco.getText().isEmpty() || txtNome.getText().isEmpty() || txtRg.getText().isEmpty() || txtUf.getText().isEmpty() || txtComissao.getText().isEmpty() || txtSalarioBase.getText().isEmpty() || txtDataNascimento.getText().isEmpty() || txtHorasSemanais.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos para validar as informacoes!!");
+
+            //escreve log
+            arquivos.escreveLog("Tentativa falha de cadastro de funcionario Algum campo esta vazio");
+        } else {
+            try {
+                clnCadastro.setBairro(txtBairro.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo bairro");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em bairro");
+                return;
+            }
+            try {
+                clnCadastro.setCargo(txtCargo.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo cargo");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em cargo");
+                return;
+            }
+            try {
+                clnCadastro.setCidade(txtCidade.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo cidade");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em cidade");
+                return;
+            }
+            try {
+                clnCadastro.setCodigo(Integer.parseInt(txtCodigo.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Codigo precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, codigo precisa ser um numero");
+                return;
+            }
+            try {
+                clnCadastro.setCpf(txtCpf.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "CPF precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, cpf precisa ser um numero");
+                return;
+            }
+            try {
+                clnCadastro.setDataEnceramento(txtDataEnceramento.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Data de encerramento precisa ser uma data");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, data de encerramento precisa ser uma data");
+                return;
+            }
+            try {
+                clnCadastro.setDataContratacao(txtDataContratacao.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Data de contratação precisa ser uma data");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, data de contratação precisa ser uma data");
+                return;
+            }
+            try {
+                clnCadastro.setEndereco(txtEndereco.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo endereco");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em endereco");
+                return;
+            }
+            try {
+                clnCadastro.setNomeCompleto(txtNome.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo nome");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em nome");
+                return;
+            }
+            try {
+                clnCadastro.setRg(Integer.parseInt(txtRg.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "RG precisa ser uma sequencia de 9 numeros");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, RG precisa ser um sequencia de numeros");
+                return;
+            }
+            try {
+                clnCadastro.setSexo(comboSexo.getSelectedItem().toString());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo sexo");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em sexo");
+                return;
+            }
+            try {
+                clnCadastro.setUf(txtUf.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Verifique o campo de UF");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em UF");
+                return;
+            }
+            try {
+                clnCadastro.setValorComissao(Float.parseFloat(txtComissao.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Valor da comisão precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, valor da comicao precisa ser um numero");
+                return;
+            }
+            try {
+                clnCadastro.setValorSalario(Float.parseFloat(txtSalarioBase.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Salario base precisa ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, salario base precisa ser um numero");
+                return;
+            }
+            try {
+                clnCadastro.setDataNascimento(txtDataNascimento.getText());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Data de nascimento precisa ser uma data");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, data de nascimento precisa ser um data");
+                return;
+            }
+            try {
+                clnCadastro.setHorasSemanais(Integer.parseInt(txtHorasSemanais.getText()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Horas semanais deve ser um numero");
+                arquivos.escreveLog("Tentativa falha de cadastro de Funcionario, erro em horas semanais");
+                return;
+            }
             clnCadastro.imprimirCadastro();
             JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
-            
+
             //escreve no log
             arquivos.escreveLog("Funcionario Cadastrado com sucesso");
         }
-        
+
         
     }
     
