@@ -30,7 +30,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
     }
     
     //Instancia classe de arquivos
-    clnArquivos arquivo = new clnArquivos();
+    clnArquivos arquivos = new clnArquivos();
     /**
      * Creates new form cadastroPedido
      */
@@ -240,9 +240,10 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         if(m2 == "--"){
             JOptionPane.showMessageDialog(null, "Você precisa prencher o campo 'Mesa' para validar as informações!!");
             //log
-            arquivo.escreveLog("Tentativa falha de adicao de pedido campo mesa esta vazio");
+            arquivos.escreveLog("Tentativa falha de adicao de pedido campo mesa esta vazio");
         }
         else{
+         try{
         clnPedido.setLanche((String) jComboBox1.getSelectedItem());
         clnPedido.setQuant1((String) jComboBox2.getSelectedItem());
         clnPedido.setBebida((String) jComboBox3.getSelectedItem());
@@ -252,19 +253,24 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         String l = jComboBox1.getSelectedItem().toString();
         String b = jComboBox3.getSelectedItem().toString();
         String m = jComboBox4.getSelectedItem().toString();
+        String q1 = jComboBox2.getSelectedItem().toString();
+        String q2 = jComboBox5.getSelectedItem().toString();
         
-        String P = "Pedido: " + " Lanche: " + l +" , " +" Beida: " + b + " , " + " Mesa: " + m;
+        String P = "Pedido: " + " Lanche: " + l +" Qnt L: "+ q1 + " , " +" Bebida: " + b + " Qnt B: " + q2 + " , " + " Mesa: " + m;
         ped.add(P);
         jList1.setListData(ped);    
         jList1.removeAll();
         
-        
+         } catch (Exception e) {
+          arquivos.escreveLog("Tentativa falha de cadastro de pedido, erro nos combobox");
+             return;
+         }
      
 
         clnPedido.imprimirPedido();
         JOptionPane.showMessageDialog(null, "Pedido Adicionado com sucesso!");
         //log
-        arquivo.escreveLog("Pedido Adicionado com sucesso");
+        arquivos.escreveLog("Pedido Adicionado com sucesso");
         }
     }
     
@@ -272,7 +278,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
        cadastroPedido.this.dispose();
        JOptionPane.showMessageDialog(null, "Pedido Cancelado!");
        //log
-       arquivo.escreveLog("Janela de cadastro de pedidos esta fechada");
+       arquivos.escreveLog("Janela de cadastro de pedidos esta fechada");
     }
     
     
