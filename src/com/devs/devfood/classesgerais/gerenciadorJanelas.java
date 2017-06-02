@@ -5,6 +5,7 @@
  */
 package com.devs.devfood.classesgerais;
 
+import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
@@ -29,8 +30,17 @@ public class gerenciadorJanelas {
         }
         else{
             jDesktopPane.add(jinternalFrame);
+            centralizaForm(jinternalFrame);
             jinternalFrame.setVisible(true);
         }
+    }
+    
+    //Função que centraliza internaljframe
+     private void centralizaForm(JInternalFrame frame) {
+        Dimension desktopSize = jDesktopPane.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+        (desktopSize.height - jInternalFrameSize.height) / 2);
     }
     
 }

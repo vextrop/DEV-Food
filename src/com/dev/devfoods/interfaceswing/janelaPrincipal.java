@@ -252,13 +252,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastroFuncionariosActionPerformed
     
-    //Função que centraliza internaljframe
-     private void centralizaForm(JInternalFrame frame) {
-        Dimension desktopSize = areaTrabalho.getSize();
-        Dimension jInternalFrameSize = frame.getSize();
-        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
-                (desktopSize.height - jInternalFrameSize.height) / 2);
-    }
+    
     
      
      
