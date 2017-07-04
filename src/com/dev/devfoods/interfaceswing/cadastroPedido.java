@@ -258,7 +258,7 @@ public class cadastroPedido extends javax.swing.JInternalFrame {
         
         String P = "Pedido: " + " Lanche: " + l +" Qnt L: "+ q1 + " , " +" Bebida: " + b + " Qnt B: " + q2 + " , " + " Mesa: " + m;
         ped.add(P);
-        jList1.setListData(ped);    
+        jList1.setListData(ped);     
         jList1.removeAll();
         
          } catch (Exception e) {
