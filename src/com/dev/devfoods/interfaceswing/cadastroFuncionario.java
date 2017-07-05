@@ -6,6 +6,8 @@ import com.devs.devfood.eventosbotoes.eventoCadastroFuncionarios;
 import java.io.IOException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,7 +25,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
      * Creates new form cadastroFuncionario
      */
     private static cadastroFuncionario funcionarios;
-    private Vector vetorFuncionario = new Vector();
+    
     
     public static cadastroFuncionario getInstancia(){
         if(funcionarios == null){
@@ -32,7 +34,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         return funcionarios;
     }
     
-    
+    private Vector vetorFuncionario = new Vector();
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
     private clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
     //Instancia de classe de cadastro de log
@@ -179,9 +181,28 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         //receber dados de select e carregar no vetor
         //carregar vetor na lista e pronto
         
-        String funionario = "Codigo 121212 | Nome Eduardo Spillere Anzolin";
-        vetorFuncionario.add(1, funionario);
+        
+        
+        String funionario = "121212|Eduardo Spillere Anzolin";
+        vetorFuncionario.add(funionario);
         listaFuncionarios.setListData(vetorFuncionario);
+        
+        //configurando evento de selecao na lista
+        listaFuncionarios.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                System.out.println(e);
+                if(listaFuncionarios.getSelectedValue() != null){
+                    //chama funcao que carrega os dados nos campos respectivos
+                    carregaCamposVisual();
+                }
+            }
+        });
+        
+    }
+    
+    private void carregaCamposVisual(){
+        //funcao para carregar os campos
     }
     
     public void cancelaCadastro() throws IOException{
