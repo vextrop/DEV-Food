@@ -17,22 +17,24 @@ import java.sql.SQLException;
 public class funcionarioControle {
 
     /*
-        codigo
-        nome completo
-        cpf
-        rg
-        data nasc   
-        sexo
-        endereco
-        uf
-        bairro
-        cidade
-        cargo
-        horas semanai
-        valor comissao
-        salario base
-        data contrat
-        data enceramneto
+CREATE TABLE FUNCIONARIO(
+ID_FUNCIONARIO INT PRIMARY KEY,
+NOMEF VARCHAR(255),
+CPF INT,
+RG INT,
+DATA_NASC VARCHAR(255),
+SEXO VARCHAR(255),
+ENDERECO VARCHAR(255),
+UF VARCHAR(255),
+BAIRRO VARCHAR(255),
+CIDADE VARCHAR(255),
+CARGO VARCHAR(255),
+HORASSEMANA VARCHAR(255),
+VALORCOMISAO VARCHAR(255),
+SALARIOB VARCHAR(255),
+DATACONTRATA VARCHAR(255),
+DATAENCE VARCHAR(255)
+);
     */
     
 public void insert(clnCadastroFuncionarios funcionario) {
@@ -40,7 +42,7 @@ public void insert(clnCadastroFuncionarios funcionario) {
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "insert into produtos (COD_FUNCIONARIO,NOME_COMPLETO,CPF,RG,DATA_NASC,SEXO,ENDERECO,UF,BAIRRO,CIDADE,CARGO,HORAS_SEMANAIS,VALOR_COMISSAO,VALOR_SALARIO_BASE,DATA_CONTRATACAO,DATA_ENCERAMENTO) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into FUNCIONARIO (ID_FUNCIONARIO,NOMEF,CPF,RG,DATA_NASC,SEXO,ENDERECO,UF,BAIRRO,CIDADE,CARGO,HORASSEMANA,VALORCOMISAO,SALARIOB,DATACONTRATA,DATAENCE) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, funcionario.getCodigo());
             ps.setString(2, funcionario.getNomeCompleto());
@@ -97,7 +99,7 @@ public void delete(clnCadastroFuncionarios funcionario) {
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "delete from PRODUTOS where CODIGO = ?";
+            String sql = "delete from FUNCIOARIO where ID_FUNCIONARIO = ?";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, funcionario.getCodigo());
             ps.execute();
