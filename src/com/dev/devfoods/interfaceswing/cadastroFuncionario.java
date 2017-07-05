@@ -44,6 +44,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         initComponents();
         btnFinalizaCadastro.addActionListener(eventoFuncionarios);
         btnCancelaCadastro.addActionListener(eventoFuncionarios);
+        btnDeletaCadastro.addActionListener(eventoFuncionarios);
     }
  
     public void cadastraFuncionario() throws IOException {
@@ -168,12 +169,23 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
             }
             clnCadastro.imprimirCadastro();
             JOptionPane.showMessageDialog(null, "Usuario " + txtNome.getText() + "Cadastrado com sucesso!");
-
+            
+            //chama funcao capas de salvar dados no banco
+            clnCadastro.salvarCadastro();
+            
             //escreve no log
             arquivos.escreveLog("Funcionario Cadastrado com sucesso");
+            //atualiza lista com novo cadastro
             carregaListaFuncionarios();
         }
 
+        
+    }
+    
+    public void deletaCadastro(){
+        
+        //chama funcao capas de deletar funcionari
+        clnCadastro.deletarCadastro();
         
     }
     
@@ -259,7 +271,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaFuncionarios = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btnDeletaCadastro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -479,11 +491,6 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista"));
 
-        listaFuncionarios.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listaFuncionarios);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -503,7 +510,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Deletar");
+        btnDeletaCadastro.setText("Deletar");
+        FinalizaCadastro.setActionCommand("deletarCadastro");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -516,7 +524,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnFinalizaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeletaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -538,7 +546,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnFinalizaCadastro)
-                        .addComponent(jButton1))
+                        .addComponent(btnDeletaCadastro))
                     .addComponent(btnCancelaCadastro))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -587,9 +595,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelaCadastro;
+    private javax.swing.JButton btnDeletaCadastro;
     private javax.swing.JButton btnFinalizaCadastro;
     private javax.swing.JComboBox<String> comboSexo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

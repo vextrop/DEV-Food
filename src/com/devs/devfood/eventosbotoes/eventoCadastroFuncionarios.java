@@ -51,6 +51,14 @@ public class eventoCadastroFuncionarios implements ActionListener{
                 Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        if("deletarCadastro".equals(e.getActionCommand())){
+            cadastrofuncionario.deletaCadastro();
+            try {
+                arquivo.escreveLog("Tentativa de deletar funcionario realizada");
+            } catch (IOException ex) {
+                Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }

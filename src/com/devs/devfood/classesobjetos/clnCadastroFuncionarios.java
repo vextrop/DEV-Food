@@ -5,12 +5,16 @@
  */
 package com.devs.devfood.classesobjetos;
 
+import com.dev.devfood.dao.funcionarioControle;
+
 /**
  *
  * @author eduardo
  */
 public class clnCadastroFuncionarios {
-
+    
+    funcionarioControle banco = new funcionarioControle();
+    
     private int iCod, iRg, iHorasSemanais;
     private String strNOmeCOmpleto, strCpf, strData, strSexo, strEndereco, strUf, strBairro, strCidade, strCargo, strDataContratacao, strDataEnceramento, strDataNascimento;
     private float flValorComissao, flSalarioBase;
@@ -160,6 +164,14 @@ public class clnCadastroFuncionarios {
         System.out.println("Salario Base:" + getValorSalario());
         System.out.println("Data Contratação:" + getDataContratacao());
         System.out.println("Data Enceramento:" + getDataEnceramento());
+    }
+    
+    public void salvarCadastro(){
+        banco.insert(this);//verificar se funciona
+    }
+    
+    public void deletarCadastro(){
+        banco.delete(this);//verificar se funciona
     }
     
 }
