@@ -177,7 +177,8 @@ public void delete(clnCadastroFuncionarios funcionario) {
         return lista;
     }
 
-    public clnCadastroFuncionarios selecionaDetalhado(Integer codigo) {
+    public List<clnCadastroFuncionarios> selecionaDetalhado(Integer codigo) {
+        List<clnCadastroFuncionarios> lista = new ArrayList<clnCadastroFuncionarios>();
         Connection conn = null;
         PreparedStatement ps = null;
         try {
@@ -192,7 +193,8 @@ public void delete(clnCadastroFuncionarios funcionario) {
                 clnCadastroFuncionarios p = new clnCadastroFuncionarios();
                 p.setCodigo(cod);
                 p.setNomeCompleto(nome);
-                return p;
+                lista.add(p);
+                return lista;
             }
         } catch(SQLException e) {
             System.out.println("ERRO: " + e.getMessage());

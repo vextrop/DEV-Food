@@ -186,7 +186,14 @@ public class clnCadastroFuncionarios {
     
     public void consultaDetalhado(int cod){
         
-        banco.selecionaDetalhado(cod);
+        List<clnCadastroFuncionarios> lista = banco.selecionaDetalhado(cod);
+        
+        for (clnCadastroFuncionarios c : lista) {
+            
+            setNomeCompleto(lista.get(0).toString());
+            
+        }
+        
         
     }
 }

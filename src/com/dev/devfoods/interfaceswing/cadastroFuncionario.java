@@ -38,6 +38,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     }
     
     private Vector vetorFuncionario = new Vector();
+    private Vector vatorAuxiliar = new Vector();
     
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
     private clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
@@ -180,7 +181,6 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
             //escreve no log
             arquivos.escreveLog("Funcionario Cadastrado com sucesso");
             //atualiza lista com novo cadastro
-            carregaListaFuncionarios();
         }
 
         
@@ -199,6 +199,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         
         //recebe retorno da lista
         List<clnCadastroFuncionarios> lista = clnCadastro.consultaLista();//buscamos os dados
+        
+        listaFuncionarios.removeAll();
         
         //lista tudo que tem na lista
         for (clnCadastroFuncionarios c : lista) {
@@ -237,7 +239,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         //realiza a busca
         clnCadastro.consultaDetalhado(Integer.parseInt(codigo[0]));
         
-        System.out.println(clnCadastro.getCodigo());//exemplo teste
+        System.out.println(clnCadastro.getNomeCompleto());//exemplo teste
+        
+        clnCadastro.imprimirCadastro();
         
     }
     

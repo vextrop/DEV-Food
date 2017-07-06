@@ -34,6 +34,7 @@ public class eventoCadastroFuncionarios implements ActionListener{
         if("finalizaCadastro".equals(e.getActionCommand())){
             try {
                 cadastrofuncionario.cadastraFuncionario();
+                cadastrofuncionario.carregaListaFuncionarios();
             } catch (IOException ex) {
                 Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
             }  
