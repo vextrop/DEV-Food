@@ -47,7 +47,7 @@ public class sobrePrograma extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Diversos cadastros uteis para os fins do dia a dia.");
 
-        jLabel3.setText("© 2017 - Equeipe DevFood");
+        jLabel3.setText("© 2017 - Equipe DevFood");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

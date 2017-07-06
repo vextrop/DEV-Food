@@ -121,7 +121,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xa9; 2017 - Equeipe DevFood"/>
+                <Property name="text" type="java.lang.String" value="&#xa9; 2017 - Equipe DevFood"/>
               </Properties>
             </Component>
           </SubComponents>
