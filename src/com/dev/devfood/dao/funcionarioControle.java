@@ -99,7 +99,7 @@ public void delete(clnCadastroFuncionarios funcionario) {
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "delete from FUNCIOARIO where ID_FUNCIONARIO = ?";
+            String sql = "delete from FUNCIONARIO where ID_FUNCIONARIO = ?";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, funcionario.getCodigo());
             ps.execute();

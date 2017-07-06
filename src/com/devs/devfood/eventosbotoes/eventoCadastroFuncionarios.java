@@ -36,8 +36,7 @@ public class eventoCadastroFuncionarios implements ActionListener{
                 cadastrofuncionario.cadastraFuncionario();
             } catch (IOException ex) {
                 Logger.getLogger(eventoCadastroFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+            }  
         }
         if("cancelarCadastro".equals(e.getActionCommand())){
             try {

@@ -35,6 +35,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     }
     
     private Vector vetorFuncionario = new Vector();
+    
     private eventoCadastroFuncionarios eventoFuncionarios = new eventoCadastroFuncionarios(this);
     private clnCadastroFuncionarios clnCadastro = new clnCadastroFuncionarios();
     //Instancia de classe de cadastro de log
@@ -521,7 +522,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         );
 
         btnDeletaCadastro.setText("Deletar");
-        btnFinalizaCadastro.setActionCommand("deletarCadastro");
+        btnDeletaCadastro.setActionCommand("deletarCadastro");
         btnDeletaCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeletaCadastroActionPerformed(evt);

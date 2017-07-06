@@ -543,7 +543,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletaCadastroActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnFinalizaCadastro.setActionCommand(&quot;deletarCadastro&quot;);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="btnDeletaCadastro.setActionCommand(&quot;deletarCadastro&quot;);"/>
           </AuxValues>
         </Component>
       </SubComponents>
