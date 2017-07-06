@@ -4,6 +4,7 @@ import com.devs.devfood.classesobjetos.clnArquivos;
 import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
 import com.devs.devfood.eventosbotoes.eventoCadastroFuncionarios;
 import java.io.IOException;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -194,7 +195,8 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         //receber dados de select e carregar no vetor
         //carregar vetor na lista e pronto
         
-        
+        List<clnCadastroFuncionarios> lista = clnCadastro.consultaLista();//buscamos os dados
+        Iterable<clnCadastroFuncionarios> dados = null;
         
         String funionario = "121212|Eduardo Spillere Anzolin";
         vetorFuncionario.add(funionario);
@@ -216,6 +218,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
     
     private void carregaCamposVisual(){
         //funcao para carregar os campos
+        System.out.println("funcionou esa porra");
     }
     
     public void cancelaCadastro() throws IOException{

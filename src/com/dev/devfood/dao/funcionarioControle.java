@@ -8,7 +8,10 @@ package com.dev.devfood.dao;
 import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -135,6 +138,44 @@ public void delete(clnCadastroFuncionarios funcionario) {
         }
     }
 
-    
+    public List<clnCadastroFuncionarios> selecionarLista() {
+        List<clnCadastroFuncionarios> lista = new ArrayList<clnCadastroFuncionarios>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = conexao.getConnection();
+            String sql = "select ID_FUNCIONARIO, NOMEF from FUNCIONARIO";
+            ps = conn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Integer codigo = rs.getInt(1);
+                String nomeCompleto = rs.getString(2);
+                clnCadastroFuncionarios p = new clnCadastroFuncionarios();
+                p.setCodigo(codigo);
+                p.setNomeCompleto(nomeCompleto);
+                lista.add(p);
+            }
+        } catch(SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+        } finally {
+            if( ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+        }
+        return lista;
+    }
+
 
 }

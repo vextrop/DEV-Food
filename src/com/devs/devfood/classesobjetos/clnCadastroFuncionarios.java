@@ -6,6 +6,8 @@
 package com.devs.devfood.classesobjetos;
 
 import com.dev.devfood.dao.funcionarioControle;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -166,12 +168,20 @@ public class clnCadastroFuncionarios {
         System.out.println("Data Enceramento:" + getDataEnceramento());
     }
     
+    //iterações com banco de dados
     public void salvarCadastro(){
         banco.insert(this);//verificar se funciona
     }
     
     public void deletarCadastro(){
         banco.delete(this);//verificar se funciona
+    }
+    
+    public List<clnCadastroFuncionarios> consultaLista(){
+        
+        List<clnCadastroFuncionarios> lista = banco.selecionarLista();
+        
+        return lista;
     }
     
 }
