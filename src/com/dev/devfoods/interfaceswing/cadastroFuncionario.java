@@ -4,8 +4,10 @@ import com.devs.devfood.classesobjetos.clnArquivos;
 import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
 import com.devs.devfood.eventosbotoes.eventoCadastroFuncionarios;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -195,12 +197,20 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         //receber dados de select e carregar no vetor
         //carregar vetor na lista e pronto
         
+        //recebe retorno da lista
         List<clnCadastroFuncionarios> lista = clnCadastro.consultaLista();//buscamos os dados
-        Iterable<clnCadastroFuncionarios> dados = null;
         
-        String funionario = "121212|Eduardo Spillere Anzolin";
-        vetorFuncionario.add(funionario);
-        listaFuncionarios.setListData(vetorFuncionario);
+        //lista tudo que tem na lista
+        for (clnCadastroFuncionarios c : lista) {
+            System.out.println(c.getCodigo());
+            System.out.println(c.getNomeCompleto());
+            
+            String funcionario = c.getCodigo() + "|" + c.getNomeCompleto();
+            
+            vetorFuncionario.add(funcionario);
+            listaFuncionarios.setListData(vetorFuncionario);
+            
+        }
         
         //configurando evento de selecao na lista
         listaFuncionarios.addListSelectionListener(new ListSelectionListener() {
@@ -209,16 +219,26 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
                 System.out.println(e);
                 if(listaFuncionarios.getSelectedValue() != null){
                     //chama funcao que carrega os dados nos campos respectivos
-                    carregaCamposVisual();
+                    //System.out.println(listaFuncionarios.getSelectedValue());
+                    carregaCamposDetalhado(listaFuncionarios.getSelectedValue());
                 }
             }
         });
         
     }
     
-    private void carregaCamposVisual(){
+    private void carregaCamposDetalhado(String selecaoLista){
         //funcao para carregar os campos
-        System.out.println("funcionou esa porra");
+        
+        String codigo[] = selecaoLista.split(Pattern.quote("|"));
+        
+        //o codigo fica sempre na posicao 0 do array
+        
+        //realiza a busca
+        clnCadastro.consultaDetalhado(Integer.parseInt(codigo[0]));
+        
+        System.out.println(clnCadastro.getCodigo());//exemplo teste
+        
     }
     
     public void cancelaCadastro() throws IOException{

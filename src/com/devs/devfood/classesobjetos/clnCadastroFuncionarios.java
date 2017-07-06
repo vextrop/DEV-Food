@@ -184,4 +184,9 @@ public class clnCadastroFuncionarios {
         return lista;
     }
     
+    public void consultaDetalhado(int cod){
+        
+        banco.selecionaDetalhado(cod);
+        
+    }
 }

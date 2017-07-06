@@ -177,5 +177,42 @@ public void delete(clnCadastroFuncionarios funcionario) {
         return lista;
     }
 
-
+    public clnCadastroFuncionarios selecionaDetalhado(Integer codigo) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = conexao.getConnection();
+            String sql = "select ID_FUNCIONARIO, NOMEF from FUNCIONARIO where ID_FUNCIONARIO = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, codigo);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                Integer cod = rs.getInt(1);
+                String nome = rs.getString(2);
+                clnCadastroFuncionarios p = new clnCadastroFuncionarios();
+                p.setCodigo(cod);
+                p.setNomeCompleto(nome);
+                return p;
+            }
+        } catch(SQLException e) {
+            System.out.println("ERRO: " + e.getMessage());
+        } finally {
+            if( ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+            if(conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    System.out.println("ERRO: " + ex.getMessage());
+                }
+            }
+        }
+        return null;
+    }
+    
 }
