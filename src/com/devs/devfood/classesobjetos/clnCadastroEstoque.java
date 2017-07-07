@@ -1,15 +1,20 @@
 package com.devs.devfood.classesobjetos;
 
+import com.dev.devfood.dao.estoqueControle;
+
+import java.util.List;
 /**
  *
  * @author dimitry
  */
 public class clnCadastroEstoque {
     
+     estoqueControle banco = new estoqueControle();
+      
     private int Cod, Quantidade, Validade;
     private String NomeP, Fornecedor, Observacoes, Categoria;
     private float Custo;
-    
+  
     
     public String getnomeP(){
         return this.NomeP;
@@ -71,6 +76,33 @@ public class clnCadastroEstoque {
      System.out.println("Custo: " + getCusto());   
      System.out.println("Observações: " + getObservacoes());   
     }
+    public void salvarCadastro(){
+        
+        banco.insert(this);//verificar se funciona
+    }
     
+    public void deletarCadastro(){
+        banco.delete(this);//verificar se funciona
+    }
+    
+    public List<clnCadastroEstoque> consultaLista(){
+        
+        List<clnCadastroEstoque> lista = banco.selecionarLista();
+        
+        return lista;
+    }
+    
+    public void consultaDetalhado(int cod){
+        
+     //   List<clnCadastroEstoque> lista = banco.selecionaDetalhado(cod);
+        
+      //  for (clnCadastroEstoque c : lista) {
+            
+        //    setNomeP(lista.get(0).toString());
+            
+       // }
+        
+        
+    }
    
 }

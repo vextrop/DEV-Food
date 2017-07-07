@@ -1,7 +1,9 @@
 
 package com.dev.devfood.dao;
 
-import com.devs.devfood.classesobjetos.clnCadastroEstoque;
+
+
+import com.devs.devfood.classesobjetos.clnCadastroPedido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,39 +11,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class estoqueControle {
+public class pedidoControle {
     
-/*
-    
-CREATE TABLE ESTOQUE(
-ID_ESTOQUE INT PRIMARY KEY,
-NOMEP VARCHAR(255),
-QUANTIDADEP INT,
-VALIDADE VARCHAR(255),
-FORNECEDOR VARCHAR(255),
-CATEGORIA VARCHAR(255),
-CUSTO VARCHAR(255),
-OBSERVACOES VARCHAR(255)
-);
-    
-    */    
-    
-public void insert(clnCadastroEstoque estoque) {
+/* CREATE TABLE PEDIDO(
+LANCHE VARCHAR(255),
+QUANTIDADEL INT,
+BEBIDAS  VARCHAR(255),
+QUANTIDADEB INT,
+MESA  INT
+);   
+
+*/
+    public void insert(clnCadastroPedido pedido) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "insert into ESTOQUE (ID_ESTOQUE,NOMEP,QUANTIDADEP,VALIDADE,FORNECEDOR,CATEGORIA,CUSTO,OBSERVACOES) values(?,?,?,?,?,?,?,?)";
+            String sql = "insert into PEDIDO (MESA,LANCHE,QUANTIDADEL,BEBIDAS,QUANTIDADEB) values(?,?,?,?,?)";
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, estoque.getCod());
-            ps.setString(2, estoque.getnomeP());
-            ps.setInt(3, estoque.getQuantidade());
-            ps.setInt(4, estoque.getValidade());
-            ps.setString(5, estoque.getFornecedor());
-            ps.setString(6, estoque.getCategoria());
-            ps.setFloat(7, estoque.getCusto());
-            ps.setString(8, estoque.getObservacoes());
-            
+            ps.setString(1, pedido.getMesa());
+            ps.setString(2, pedido.getLanche());
+            ps.setString(1, pedido.getQuant1()); 
+            ps.setString(1, pedido.getBebida());
+            ps.setString(1, pedido.getQuant2());
             ps.execute();
 
             conn.commit();
@@ -75,14 +67,14 @@ public void insert(clnCadastroEstoque estoque) {
         }
     }
 
-public void delete(clnCadastroEstoque estoque) {
+public void delete(clnCadastroPedido pedido) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "delete from ESTOQUE where ID_ESTOQUE = ?";
+            String sql = "delete from PEDIDO where MESA = ?";
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, estoque.getCod());
+            ps.setString(1, pedido.getMesa());
             ps.execute();
 
             conn.commit();
@@ -116,22 +108,22 @@ public void delete(clnCadastroEstoque estoque) {
         }
     }
 
-    public List<clnCadastroEstoque> selecionarLista() {
-        List<clnCadastroEstoque> lista = new ArrayList<clnCadastroEstoque>();
+    public List<clnCadastroPedido> selecionarLista() {
+        List<clnCadastroPedido> lista = new ArrayList<clnCadastroPedido>();
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "select ID_ESTOQUE, NOMEP from ESTOQUE";
+            String sql = "select MESA, LANCHE from PEDIDO";
             ps = conn.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
             while(rs.next()) {
                 Integer codigo = rs.getInt(1);
                 String nomeCompleto = rs.getString(2);
-                clnCadastroEstoque p = new clnCadastroEstoque();
-                p.setCod(codigo);
-                p.setNomeP(nomeCompleto);
+                clnCadastroPedido p = new clnCadastroPedido();
+                p.setMesa(sql);
+                p.setLanche(nomeCompleto);
                 lista.add(p);
             }
         } catch(SQLException e) {
@@ -155,21 +147,21 @@ public void delete(clnCadastroEstoque estoque) {
         return lista;
     }
 
-    public clnCadastroEstoque selecionaDetalhado(Integer codigo) {
+    public clnCadastroPedido selecionaDetalhado(Integer codigo) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = conexao.getConnection();
-            String sql = "select ID_ESTOQUE, NOMEF from ESTOQUE where ID_ESTOQUE = ?";
+            String sql = "select MESA, NOME from PEDIDO where MESA = ?";
             ps = conn.prepareStatement(sql);
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
                 Integer cod = rs.getInt(1);
                 String nome = rs.getString(2);
-                clnCadastroEstoque p = new clnCadastroEstoque();
-                p.setCod(cod);
-                p.setNomeP(nome);
+                clnCadastroPedido p = new clnCadastroPedido();
+                p.setMesa(nome);
+                p.setLanche(nome);
                 return p;
             }
         } catch(SQLException e) {
@@ -194,4 +186,3 @@ public void delete(clnCadastroEstoque estoque) {
     }
     
 }
-
