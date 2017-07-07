@@ -52,6 +52,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         btnCancelaCadastro.addActionListener(eventoFuncionarios);
         btnDeletaCadastro.addActionListener(eventoFuncionarios);
         
+        //carrega a lista de funcionarios ja cadastrados
         carregaListaFuncionarios();
         
     }
