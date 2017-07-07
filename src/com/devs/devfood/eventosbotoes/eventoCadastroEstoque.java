@@ -28,6 +28,8 @@ public eventoCadastroEstoque (cadastroEstoque cadaEst) {
     if("cadastrarestoque".equals(e.getActionCommand())){
         try {
             cadastroEstoque.cadastrarEstoque();
+            cadastroEstoque.carregaListaEstoque();
+         
         } catch (IOException ex) {
             Logger.getLogger(eventoCadastroEstoque.class.getName()).log(Level.SEVERE, null, ex);
         }

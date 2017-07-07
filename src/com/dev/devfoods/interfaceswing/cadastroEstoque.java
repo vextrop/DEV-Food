@@ -4,10 +4,19 @@ package com.dev.devfoods.interfaceswing;
 import com.devs.devfood.classesobjetos.clnArquivos;
 import com.devs.devfood.eventosbotoes.eventoCadastroEstoque;
 import com.devs.devfood.classesobjetos.clnCadastroEstoque;
+import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
 import java.io.IOException;
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import javax.swing.DefaultListModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+
 
 /**
  *
@@ -15,6 +24,9 @@ import java.util.logging.Logger;
  */
 public class cadastroEstoque extends javax.swing.JInternalFrame {
     
+    
+     private Vector vetorFuncionario = new Vector();
+         
     private static cadastroEstoque estoque;
     
     public static cadastroEstoque getInstancia(){
@@ -34,7 +46,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         initComponents();
         btnSalvar.addActionListener(eventoEstoque);
         btnCancelar.addActionListener(eventoEstoque);
-        
+        carregaListaEstoque();
     }
   
     /**
@@ -68,7 +80,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        Listaestoque = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -181,7 +193,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista"));
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(Listaestoque);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -280,6 +292,9 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void cadastrarEstoque() throws IOException {
+        
+       
+         
         String teste = jComboBox1.getSelectedItem().toString();
         if (teste == "--" || txtCod.getText().isEmpty() || txtQuantidade.getText().isEmpty() || txtValidade.getText().isEmpty() || txtCusto.getText().isEmpty() || txtNome.getText().isEmpty() || txtFornecedor.getText().isEmpty() || txtobservacoes.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Você precisa prencher todos os campos");
@@ -346,7 +361,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
                 return;
             }
             clnEstoque.salvarCadastro();
-
+            
             JOptionPane.showMessageDialog(null, "Produto " + txtNome.getText() + " Cadastrado com sucesso!");
             //log
             arquivos.escreveLog("Produto cadastrado com sucesso");
@@ -361,10 +376,67 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         arquivos.escreveLog("A janela de cadastro de produtos esta fechada");
     }
     
+     private void carregaCamposDetalhado(String selecaoLista){
+        //funcao para carregar os campos
+        
+        String codigo[] = selecaoLista.split(Pattern.quote("|"));
+        
+        //o codigo fica sempre na posicao 0 do array
+        
+        //realiza a busca
+        clnEstoque.consultaDetalhado(Integer.parseInt(codigo[0]));
+        
+        System.out.println(clnEstoque.getnomeP());//exemplo teste
+        
+        clnEstoque.imprimirEstoque();
+        
+    }
+   public void carregaListaEstoque(){
+       
+        //receber dados de select e carregar no vetor
+        //carregar vetor na lista e pronto
+        
+        //recebe retorno da lista
+         
+        
+        List<clnCadastroEstoque> lista = clnEstoque.consultaLista();//buscamos os dados
+
+  
+
+
+   
     
+               
+        //lista tudo que tem na lista
+        for (clnCadastroEstoque c : lista) {
+            System.out.println(c.getCod());
+            System.out.println(c.getnomeP());
+            
+            String funcionario = c.getCod()+ "|" + c.getnomeP();
+            
+            vetorFuncionario.add(funcionario);
+            Listaestoque.setListData(vetorFuncionario);
+            
+        }
+        
+        //configurando evento de selecao na lista
+        Listaestoque.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                System.out.println(e);
+                if(Listaestoque.getSelectedValue() != null){
+                    //chama funcao que carrega os dados nos campos respectivos
+                    //System.out.println(listaFuncionarios.getSelectedValue());
+                    carregaCamposDetalhado(Listaestoque.getSelectedValue());
+                }
+            }
+        });
+        
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> Listaestoque;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton1;
@@ -378,7 +450,6 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

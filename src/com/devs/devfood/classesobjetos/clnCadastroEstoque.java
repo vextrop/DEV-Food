@@ -79,6 +79,7 @@ public class clnCadastroEstoque {
     public void salvarCadastro(){
         
         banco.insert(this);//verificar se funciona
+        
     }
     
     public void deletarCadastro(){
