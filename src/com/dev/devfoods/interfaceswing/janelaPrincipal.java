@@ -62,8 +62,6 @@ public class janelaPrincipal extends javax.swing.JFrame {
 
         areaTrabalho = new javax.swing.JDesktopPane();
         jToolBar1 = new javax.swing.JToolBar();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         btnCadastroFunc = new javax.swing.JButton();
         btnCadastroEstoque = new javax.swing.JButton();
@@ -71,10 +69,8 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnCadastroPedido = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         btnAjuda = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnCadastroFuncionarios = new javax.swing.JMenuItem();
         btnCadastroEst = new javax.swing.JMenuItem();
@@ -92,20 +88,6 @@ public class janelaPrincipal extends javax.swing.JFrame {
         jToolBar1.setBackground(new java.awt.Color(204, 204, 204));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
-
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/folder-open-information.png"))); // NOI18N
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton2);
-
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dev/devfood/icones/ico.save.32.png"))); // NOI18N
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
         jToolBar1.add(jSeparator1);
 
         btnCadastroFunc.setBackground(new java.awt.Color(204, 204, 204));
@@ -156,23 +138,7 @@ public class janelaPrincipal extends javax.swing.JFrame {
         btnAjuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAjuda.setActionCommand("sobre");
         jToolBar1.add(btnAjuda);
-
-        jMenu1.setText("Arquivo");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        jMenuItem1.setText("Abrir registro");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
-        jMenuItem2.setText("Salvar alterações");
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
+        jToolBar1.add(jSeparator4);
 
         jMenu3.setText("Cadastros");
 
@@ -231,10 +197,6 @@ public class janelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnCadastroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroPedidoActionPerformed
         // TODO add your handling code here:
@@ -323,17 +285,13 @@ public class janelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCadastroFuncionarios;
     private javax.swing.JMenuItem btnCadastroPed;
     private javax.swing.JButton btnCadastroPedido;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

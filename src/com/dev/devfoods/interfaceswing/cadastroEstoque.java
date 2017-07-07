@@ -47,6 +47,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         btnSalvar.addActionListener(eventoEstoque);
         btnCancelar.addActionListener(eventoEstoque);
         carregaListaEstoque();
+         
     }
   
     /**
@@ -301,7 +302,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
             //log
             arquivos.escreveLog("Tentativa falha de cadastro de estoque e preciso prencher todos os campos");
         } else {
-
+          
             try {
                 clnEstoque.setCod(Integer.parseInt(txtCod.getText()));
             } catch (Exception e) {
@@ -360,6 +361,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
                 arquivos.escreveLog("Tentativa falha de cadastro de estoque, erro na categoria ");
                 return;
             }
+            
             clnEstoque.salvarCadastro();
             
             JOptionPane.showMessageDialog(null, "Produto " + txtNome.getText() + " Cadastrado com sucesso!");
@@ -397,14 +399,12 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
         //carregar vetor na lista e pronto
         
         //recebe retorno da lista
-         
+      
         
         List<clnCadastroEstoque> lista = clnEstoque.consultaLista();//buscamos os dados
 
+        Listaestoque.setListData(new String[0]);
   
-
-
-   
     
                
         //lista tudo que tem na lista
