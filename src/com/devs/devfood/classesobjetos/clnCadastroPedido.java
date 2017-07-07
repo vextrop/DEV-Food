@@ -5,6 +5,8 @@
  */
 package com.devs.devfood.classesobjetos;
 
+import java.util.List;
+import com.dev.devfood.dao.pedidoControle;
 /**
  *
  * @author victor
@@ -13,7 +15,7 @@ public class clnCadastroPedido {
     
     private String Lanche, Quant1, Bebida, Quant2, Mesa;
     
-    
+    pedidoControle banco = new pedidoControle();
     
     public String getLanche(){
         
@@ -75,5 +77,32 @@ public class clnCadastroPedido {
         System.out.println("Mesa:" + getMesa());
         
     }
+     //iterações com banco de dados
+    public void salvarCadastro(){
+        banco.insert(this);//verificar se funciona
+    }
     
-}
+    public void deletarCadastro(){
+        banco.delete(this);//verificar se funciona
+    }
+    
+    public List<clnCadastroPedido> consultaLista(){
+        
+        List<clnCadastroPedido> lista = banco.selecionarLista();
+        
+        return lista;
+    }
+    
+  //  public void consultaDetalhado(int cod){
+        
+    //    List<clnCadastroPedido> lista = banco.selecionaDetalhado(cod);
+        
+       // for (clnCadastroPedido c : lista) {
+          
+      //      setNomeCompleto(lista.get(0).toString());
+            
+     //   }
+        
+        
+    }
+

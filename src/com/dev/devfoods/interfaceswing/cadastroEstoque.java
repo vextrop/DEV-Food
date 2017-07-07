@@ -345,7 +345,7 @@ public class cadastroEstoque extends javax.swing.JInternalFrame {
                 arquivos.escreveLog("Tentativa falha de cadastro de estoque, erro na categoria ");
                 return;
             }
-            clnEstoque.imprimirEstoque();
+            clnEstoque.salvarCadastro();
 
             JOptionPane.showMessageDialog(null, "Produto " + txtNome.getText() + " Cadastrado com sucesso!");
             //log
