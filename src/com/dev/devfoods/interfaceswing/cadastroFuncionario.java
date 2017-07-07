@@ -35,6 +35,7 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
             funcionarios = new cadastroFuncionario();
         }
         return funcionarios;
+        
     }
     
     private Vector vetorFuncionario = new Vector();
@@ -50,6 +51,9 @@ public class cadastroFuncionario extends javax.swing.JInternalFrame {
         btnFinalizaCadastro.addActionListener(eventoFuncionarios);
         btnCancelaCadastro.addActionListener(eventoFuncionarios);
         btnDeletaCadastro.addActionListener(eventoFuncionarios);
+        
+        carregaListaFuncionarios();
+        
     }
  
     public void cadastraFuncionario() throws IOException {

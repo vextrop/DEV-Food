@@ -1,11 +1,13 @@
 
 package com.devs.devfood.eventosbotoes;
 
+import com.dev.devfoods.interfaceswing.cadastroFuncionario;
 import com.devs.devfood.classesobjetos.clnArquivos;
 import com.dev.devfoods.interfaceswing.janelaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.dev.devfoods.interfaceswing.janelaPrincipal;
+import com.devs.devfood.classesobjetos.clnCadastroFuncionarios;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,9 @@ public class eventoJanelaPrincipal implements ActionListener{
     //carrega classe que escreve em arquivos
     clnArquivos arquivos = new clnArquivos();
     
+    //carrega janela de cadastro de funcionarios e preciso carregar lista
+    cadastroFuncionario funcionario = new cadastroFuncionario();
+    
     //criamos um construtor
     public eventoJanelaPrincipal(janelaPrincipal jaPrincipal){
        this.janelaprincipal = jaPrincipal; 
@@ -27,6 +32,7 @@ public class eventoJanelaPrincipal implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if("cadastroFuncionarios".equals(e.getActionCommand())){
+            funcionario.carregaListaFuncionarios();
             janelaprincipal.abreJanelaCadastroFuncionarios();
             try {
                 arquivos.escreveLog("Janela de cadastro de funcionarios esta aberta");
